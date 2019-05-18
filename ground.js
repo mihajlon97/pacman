@@ -208,7 +208,7 @@ function Ground(gl, position = [0, 0, 0]) {
 
 	// Object Variables
 	this.lcPosition = position;
-	this.scale = [10.5, 0, 10.5];
+	this.scale = [9, 0, 9];
 	this.mMatrix = mat4.create();
 	this.lcMatrix = mat4.create();
 	this.mMatrixInv = mat3.create();

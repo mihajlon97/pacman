@@ -185,7 +185,7 @@ function Pacman(gl, position = [0, 0, 0]) {
 
 	// Object Variables
 	this.lcPosition = position;
-	this.scale = [1, 1, 1];
+	this.scale = [0.9, 0.9, 0.9];
 
 	this.mMatrix = mat4.create();
 	this.lcMatrix = mat4.create();
@@ -243,6 +243,7 @@ function Pacman(gl, position = [0, 0, 0]) {
 	};
 
 	this.start = function () {
+		mat4.scale(this.mMatrix, this.mMatrix, this.scale);
 		mat4.translate(this.mMatrix, this.mMatrix, this.lcPosition);
 		mat4.translate(this.lcMatrix, this.lcMatrix, this.lcPosition);
 	};
