@@ -1,38 +1,38 @@
-// Sphere object
+// Pacman object
 // Expected parameter, gl instance and object position
-function Sphere(gl, position = [0, 0, 0]) {
+function Pacman(gl, position = [0, 0, 0]) {
 
 	// Shader program
-	if (Sphere.shaderProgram === undefined) {
-		Sphere.shaderProgram = initShaderProgram(gl, "vertex-shader", "fragment-shader");
-		if (Sphere.shaderProgram === null) {
+	if (Pacman.shaderProgram === undefined) {
+		Pacman.shaderProgram = initShaderProgram(gl, "vertex-shader", "fragment-shader");
+		if (Pacman.shaderProgram === null) {
 			throw new Error('Creating the shader program failed.');
 		}
-		Sphere.locations = {
+		Pacman.locations = {
 			attribute: {
-				vertPosition: gl.getAttribLocation(Sphere.shaderProgram, "vertPosition"),
-				vertColor: gl.getAttribLocation(Sphere.shaderProgram, "vertColor"),
-				aNormal: gl.getAttribLocation(Sphere.shaderProgram, "aNormal"),
+				vertPosition: gl.getAttribLocation(Pacman.shaderProgram, "vertPosition"),
+				vertColor: gl.getAttribLocation(Pacman.shaderProgram, "vertColor"),
+				aNormal: gl.getAttribLocation(Pacman.shaderProgram, "aNormal"),
 			},
 			uniform: {
-				mMatrix: gl.getUniformLocation(Sphere.shaderProgram, "mMatrix"),
-				wMatrix: gl.getUniformLocation(Sphere.shaderProgram, "wMatrix"),
-				vMatrix: gl.getUniformLocation(Sphere.shaderProgram, "vMatrix"),
-				mMatrixInv: gl.getUniformLocation(Sphere.shaderProgram, "mMatrixInv"),
-				pMatrix: gl.getUniformLocation(Sphere.shaderProgram, "pMatrix"),
-				pLight: gl.getUniformLocation(Sphere.shaderProgram, "pLight"),
-				camera: gl.getUniformLocation(Sphere.shaderProgram, "camera"),
-				specularEnabled: gl.getUniformLocation(Sphere.shaderProgram, "specularEnabled"),
-				phong: gl.getUniformLocation(Sphere.shaderProgram, "phong")
+				mMatrix: gl.getUniformLocation(Pacman.shaderProgram, "mMatrix"),
+				wMatrix: gl.getUniformLocation(Pacman.shaderProgram, "wMatrix"),
+				vMatrix: gl.getUniformLocation(Pacman.shaderProgram, "vMatrix"),
+				mMatrixInv: gl.getUniformLocation(Pacman.shaderProgram, "mMatrixInv"),
+				pMatrix: gl.getUniformLocation(Pacman.shaderProgram, "pMatrix"),
+				pLight: gl.getUniformLocation(Pacman.shaderProgram, "pLight"),
+				camera: gl.getUniformLocation(Pacman.shaderProgram, "camera"),
+				specularEnabled: gl.getUniformLocation(Pacman.shaderProgram, "specularEnabled"),
+				phong: gl.getUniformLocation(Pacman.shaderProgram, "phong")
 			}
 		};
-		gl.enableVertexAttribArray(Sphere.locations.attribute.vertPosition);
-		gl.enableVertexAttribArray(Sphere.locations.attribute.vertColor);
-		gl.enableVertexAttribArray(Sphere.locations.attribute.aNormal);
+		gl.enableVertexAttribArray(Pacman.locations.attribute.vertPosition);
+		gl.enableVertexAttribArray(Pacman.locations.attribute.vertColor);
+		gl.enableVertexAttribArray(Pacman.locations.attribute.aNormal);
 	}
 
 	// Buffers
-	if (Sphere.buffers === undefined) {
+	if (Pacman.buffers === undefined) {
 		// Create a buffer with the vertex positions
 		// 3 coordinates per vertex, 3 vertices per triangle
 		// 2 triangles make up the ground plane, 4 triangles make up the sides
@@ -169,7 +169,7 @@ function Sphere(gl, position = [0, 0, 0]) {
 		gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(normals), gl.STATIC_DRAW);
 
 
-		Sphere.buffers = {
+		Pacman.buffers = {
 			pBuffer: pBuffer,
 			cBuffer: cBuffer,
 			nBuffer: nBuffer,
@@ -195,27 +195,27 @@ function Sphere(gl, position = [0, 0, 0]) {
 
 	// Object draw function
 	this.draw = function (gl, pMatrix, vMatrix) {
-		gl.useProgram(Sphere.shaderProgram);
-		gl.uniformMatrix4fv(Sphere.locations.uniform.pMatrix, false, pMatrix);
-		gl.uniformMatrix4fv(Sphere.locations.uniform.mMatrix, false, this.mMatrix);
-		gl.uniformMatrix4fv(Sphere.locations.uniform.wMatrix, false, wMatrix);
-		gl.uniformMatrix4fv(Sphere.locations.uniform.vMatrix, false, vMatrix);
-		gl.uniformMatrix3fv(Sphere.locations.uniform.mMatrixInv, false, this.mMatrixInv);
-		gl.uniform3fv(Sphere.locations.uniform.pLight, lightPosition);
-		gl.uniform3fv(Sphere.locations.uniform.camera, [0, -10, 0]);
-		gl.uniform1f(Sphere.locations.uniform.specularEnabled, specularEnabled);
-		gl.uniform1f(Sphere.locations.uniform.phong, phong);
-		gl.uniform4fv(Sphere.locations.uniform.uColor, [1.0, 0.0, 0.0, 1.0]);
+		gl.useProgram(Pacman.shaderProgram);
+		gl.uniformMatrix4fv(Pacman.locations.uniform.pMatrix, false, pMatrix);
+		gl.uniformMatrix4fv(Pacman.locations.uniform.mMatrix, false, this.mMatrix);
+		gl.uniformMatrix4fv(Pacman.locations.uniform.wMatrix, false, wMatrix);
+		gl.uniformMatrix4fv(Pacman.locations.uniform.vMatrix, false, vMatrix);
+		gl.uniformMatrix3fv(Pacman.locations.uniform.mMatrixInv, false, this.mMatrixInv);
+		gl.uniform3fv(Pacman.locations.uniform.pLight, lightPosition);
+		gl.uniform3fv(Pacman.locations.uniform.camera, [0, -10, 0]);
+		gl.uniform1f(Pacman.locations.uniform.specularEnabled, specularEnabled);
+		gl.uniform1f(Pacman.locations.uniform.phong, phong);
+		gl.uniform4fv(Pacman.locations.uniform.uColor, [1.0, 0.0, 0.0, 1.0]);
 
-		gl.bindBuffer(gl.ARRAY_BUFFER, Sphere.buffers.pBuffer);
-		gl.vertexAttribPointer(Sphere.locations.attribute.vertPosition, Sphere.buffers.pComponents, gl.FLOAT, false, 0, 0);
-		gl.bindBuffer(gl.ARRAY_BUFFER, Sphere.buffers.cBuffer);
-		gl.vertexAttribPointer(Sphere.locations.attribute.vertColor, Sphere.buffers.cComponents, gl.FLOAT, false, 0, 0);
-		gl.bindBuffer(gl.ARRAY_BUFFER, Sphere.buffers.nBuffer);
-		gl.vertexAttribPointer(Sphere.locations.attribute.aNormal, Sphere.buffers.nComponents, gl.FLOAT, false, 0, 0);
+		gl.bindBuffer(gl.ARRAY_BUFFER, Pacman.buffers.pBuffer);
+		gl.vertexAttribPointer(Pacman.locations.attribute.vertPosition, Pacman.buffers.pComponents, gl.FLOAT, false, 0, 0);
+		gl.bindBuffer(gl.ARRAY_BUFFER, Pacman.buffers.cBuffer);
+		gl.vertexAttribPointer(Pacman.locations.attribute.vertColor, Pacman.buffers.cComponents, gl.FLOAT, false, 0, 0);
+		gl.bindBuffer(gl.ARRAY_BUFFER, Pacman.buffers.nBuffer);
+		gl.vertexAttribPointer(Pacman.locations.attribute.aNormal, Pacman.buffers.nComponents, gl.FLOAT, false, 0, 0);
 
-		gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, Sphere.buffers.iBuffer);
-		gl.drawElements(gl.TRIANGLES, Sphere.buffers.iBuffer.numItems, gl.UNSIGNED_SHORT, 0);
+		gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, Pacman.buffers.iBuffer);
+		gl.drawElements(gl.TRIANGLES, Pacman.buffers.iBuffer.numItems, gl.UNSIGNED_SHORT, 0);
 
 		gl.drawArrays(gl.TRIANGLES, 0, 18);
 	};
@@ -223,23 +223,23 @@ function Sphere(gl, position = [0, 0, 0]) {
 
 	// Object drawLines function which are displayed as local coordinates in colors R for x, G for y and B for z axis
 	this.drawLines = function (gl, pMatrix) {
-		gl.useProgram(Sphere.shaderProgram);
+		gl.useProgram(Pacman.shaderProgram);
 
-		gl.bindBuffer(gl.ARRAY_BUFFER, Sphere.buffers.lBuffer);
-		gl.vertexAttribPointer(Sphere.locations.attribute.vertPosition, Sphere.buffers.lBuffer.itemSize, gl.FLOAT, false, 0, 0);
+		gl.bindBuffer(gl.ARRAY_BUFFER, Pacman.buffers.lBuffer);
+		gl.vertexAttribPointer(Pacman.locations.attribute.vertPosition, Pacman.buffers.lBuffer.itemSize, gl.FLOAT, false, 0, 0);
 
-		gl.bindBuffer(gl.ARRAY_BUFFER, Sphere.buffers.lcBuffer);
-		gl.vertexAttribPointer(Sphere.locations.attribute.vertColor, Sphere.buffers.lcBuffer.itemSize, gl.FLOAT, false, 0, 0);
+		gl.bindBuffer(gl.ARRAY_BUFFER, Pacman.buffers.lcBuffer);
+		gl.vertexAttribPointer(Pacman.locations.attribute.vertColor, Pacman.buffers.lcBuffer.itemSize, gl.FLOAT, false, 0, 0);
 
-		gl.bindBuffer(gl.ARRAY_BUFFER, Sphere.buffers.nBuffer);
-		gl.vertexAttribPointer(Sphere.locations.attribute.aNormal, Sphere.buffers.nComponents, gl.FLOAT, false, 0, 0);
+		gl.bindBuffer(gl.ARRAY_BUFFER, Pacman.buffers.nBuffer);
+		gl.vertexAttribPointer(Pacman.locations.attribute.aNormal, Pacman.buffers.nComponents, gl.FLOAT, false, 0, 0);
 
 
-		gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, Sphere.buffers.liBuffer);
-		gl.uniformMatrix4fv(Sphere.locations.uniform.pMatrix, false, pMatrix);
-		gl.uniformMatrix4fv(Sphere.locations.uniform.mMatrix, false, this.lcMatrix);
+		gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, Pacman.buffers.liBuffer);
+		gl.uniformMatrix4fv(Pacman.locations.uniform.pMatrix, false, pMatrix);
+		gl.uniformMatrix4fv(Pacman.locations.uniform.mMatrix, false, this.lcMatrix);
 
-		gl.drawElements(gl.LINES, Sphere.buffers.liBuffer.numItems, gl.UNSIGNED_SHORT, 0);
+		gl.drawElements(gl.LINES, Pacman.buffers.liBuffer.numItems, gl.UNSIGNED_SHORT, 0);
 	};
 
 	this.start = function () {

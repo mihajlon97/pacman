@@ -33,15 +33,15 @@ var Init = function () {
 
 	// Create 9 objects
 	try {
-		objects.push(new Sphere(gl, [2, 2, 0]));
-		objects.push(new Sphere(gl, [0, 2, 0]));
-		objects.push(new Sphere(gl, [-2, 2, 0]));
+		objects.push(new Pacman(gl, [2, 2, 0]));
+		objects.push(new Pacman(gl, [0, 2, 0]));
+		objects.push(new Pacman(gl, [-2, 2, 0]));
 		objects.push(new Pyramid(gl, [2, 0, 0]));
-		objects.push(new Sphere(gl, [0, 0, 0]));
+		objects.push(new Pacman(gl, [0, 0, 0]));
 		objects.push(new Pyramid(gl, [-2, 0, 0]));
-		objects.push(new Sphere(gl, [2, -2, 0]));
-		objects.push(new Sphere(gl, [0, -2, 0]));
-		objects.push(new Sphere(gl, [-2, -2, 0]));
+		objects.push(new Pacman(gl, [2, -2, 0]));
+		objects.push(new Pacman(gl, [0, -2, 0]));
+		objects.push(new Pacman(gl, [-2, -2, 0]));
 		objects.push(new Global(gl, [0, 0, 0]));
 	} catch (E) {
 		console.log(E);
