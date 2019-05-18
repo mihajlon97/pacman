@@ -1,0 +1,542 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="449f3611-4461-4088-ac2e-8d66502d6237" name="Default Changelist" comment="" />
+    <ignored path="$PROJECT_DIR$/.tmp/" />
+    <ignored path="$PROJECT_DIR$/temp/" />
+    <ignored path="$PROJECT_DIR$/tmp/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="1044937358">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="12" />
+          <entry key="project.open.time.0" value="5" />
+          <entry key="project.open.time.1" value="4" />
+          <entry key="project.open.time.10" value="1" />
+          <entry key="project.open.time.11" value="3" />
+          <entry key="project.open.time.12" value="2" />
+          <entry key="project.open.time.15" value="1" />
+          <entry key="project.open.time.16" value="1" />
+          <entry key="project.open.time.18" value="3" />
+          <entry key="project.open.time.19" value="1" />
+          <entry key="project.open.time.2" value="1" />
+          <entry key="project.open.time.3" value="1" />
+          <entry key="project.open.time.6" value="1" />
+          <entry key="project.open.time.7" value="2" />
+          <entry key="project.open.time.8" value="1" />
+          <entry key="project.open.time.9" value="2" />
+          <entry key="project.opened" value="29" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="html" value="1" />
+          <entry key="js" value="10" />
+          <entry key="txt" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="HTML" value="1" />
+          <entry key="JavaScript" value="10" />
+          <entry key="PLAIN_TEXT" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="html" value="1533" />
+          <entry key="js" value="7844" />
+          <entry key="txt" value="732" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="HTML" value="1533" />
+          <entry key="JavaScript" value="7844" />
+          <entry key="PLAIN_TEXT" value="732" />
+        </counts>
+      </usages-collector>
+    </session>
+    <session id="-196502396">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="1" />
+          <entry key="project.open.time.1" value="1" />
+          <entry key="project.open.time.16" value="1" />
+          <entry key="project.open.time.20" value="1" />
+          <entry key="project.opened" value="3" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="342">
+              <caret line="52" selection-start-line="52" selection-end-line="52" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/main.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1343">
+              <caret line="79" column="24" selection-start-line="79" selection-start-column="24" selection-end-line="79" selection-end-column="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/global.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3298">
+              <caret line="195" column="4" selection-start-line="195" selection-start-column="4" selection-end-line="195" selection-end-column="4" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sphere.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2975">
+              <caret line="176" column="6" selection-start-line="176" selection-start-column="6" selection-end-line="176" selection-end-column="6" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/gl-matrix.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="98260">
+              <caret line="5780" column="16" selection-start-line="5780" selection-start-column="9" selection-end-line="5780" selection-end-column="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/readme.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="408">
+              <caret line="24" column="37" selection-start-line="24" selection-start-column="37" selection-end-line="24" selection-end-column="37" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/objects.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3808">
+              <caret line="225" column="116" selection-start-line="225" selection-start-column="116" selection-end-line="225" selection-end-column="116" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>-1.0</find>
+      <find>mLight</find>
+      <find>glUniform3fv</find>
+      <find>sunlightDirection</find>
+      <find>vertPosition</find>
+      <find>lightSelected</find>
+      <find>lookAt</find>
+      <find>p</find>
+      <find>lightMat</find>
+      <find>vec4</find>
+      <find>ambientIntensity</find>
+      <find>intensity</find>
+      <find>specular</find>
+      <find>specularShininess</find>
+      <find>aLight</find>
+      <find>sunlightIntensity</find>
+      <find>light</find>
+      <find>vertNormal</find>
+      <find>vertPos</find>
+      <find>lightPosition</find>
+      <find>-10</find>
+      <find>lightMatrix</find>
+      <find>lightDir</find>
+      <find>phong</find>
+      <find>camera</find>
+      <find>fragColor</find>
+      <find>Sphere</find>
+      <find>specularEnabled</find>
+      <find>numItems</find>
+      <find>10</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>mMatrix</replace>
+      <replace>pMatrix</replace>
+      <replace>mat4</replace>
+      <replace>-5</replace>
+      <replace>rotationZ</replace>
+      <replace>lcPosition</replace>
+      <replace>pBuffer</replace>
+      <replace>cBuffer</replace>
+      <replace>let</replace>
+      <replace>limit</replace>
+      <replace>hj</replace>
+      <replace>0</replace>
+      <replace>Global</replace>
+      <replace>mMatrixInv</replace>
+      <replace>cameraDir</replace>
+      <replace>pLight</replace>
+      <replace>Pyramid</replace>
+      <replace>camera</replace>
+    </replaceStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/global.js" />
+        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/sphere.js" />
+        <option value="$PROJECT_DIR$/objects.js" />
+        <option value="$PROJECT_DIR$/main.js" />
+        <option value="$PROJECT_DIR$/readme.txt" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="15" />
+    <option name="y" value="30" />
+    <option name="width" value="1890" />
+    <option name="height" value="930" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="lab1a-1b_Mihajlo_Nikodijevic_01646292" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lab1a-1b_Mihajlo_Nikodijevic_01646292" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\miki9\Desktop\Notebook\Bachelor Informatik\Semester 5\GFX\lab1a_Mihajlo_Nikodijevic_01646292" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="449f3611-4461-4088-ac2e-8d66502d6237" name="Default Changelist" comment="" />
+      <created>1540747623949</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1540747623949</updated>
+      <workItem from="1540747625560" duration="1939000" />
+      <workItem from="1541428467777" duration="24573000" />
+      <workItem from="1541694178061" duration="9046000" />
+      <workItem from="1541863045541" duration="594000" />
+      <workItem from="1542043770505" duration="1699000" />
+      <workItem from="1542118866953" duration="31033000" />
+      <workItem from="1542238529305" duration="8519000" />
+      <workItem from="1542314480892" duration="1805000" />
+      <workItem from="1542361957440" duration="25000" />
+      <workItem from="1552566262854" duration="3227000" />
+      <workItem from="1552572402181" duration="396000" />
+      <workItem from="1552573075906" duration="599000" />
+      <workItem from="1552601236519" duration="599000" />
+      <workItem from="1552640238933" duration="5031000" />
+      <workItem from="1552658674819" duration="6369000" />
+      <workItem from="1552906251162" duration="105000" />
+      <workItem from="1553171634724" duration="5163000" />
+      <workItem from="1553601856709" duration="5216000" />
+      <workItem from="1554376828882" duration="651000" />
+      <workItem from="1554635834183" duration="9578000" />
+      <workItem from="1554717914304" duration="724000" />
+      <workItem from="1554745718462" duration="599000" />
+      <workItem from="1554797323744" duration="5387000" />
+      <workItem from="1554882121656" duration="45000" />
+      <workItem from="1554982606701" duration="3031000" />
+      <workItem from="1556797703797" duration="4638000" />
+      <workItem from="1556872853733" duration="599000" />
+      <workItem from="1556896201394" duration="1201000" />
+      <workItem from="1556977264790" duration="27259000" />
+      <workItem from="1557227971546" duration="2145000" />
+      <workItem from="1557247592391" duration="655000" />
+      <workItem from="1557302377327" duration="65000" />
+    </task>
+    <task id="LOCAL-00001" summary="- CLEANING">
+      <created>1540761678287</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1540761678287</updated>
+    </task>
+    <task id="LOCAL-00002" summary=" - projection matrix global transform">
+      <created>1541722586060</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1541722586060</updated>
+    </task>
+    <task id="LOCAL-00003" summary=" - debug ss2019">
+      <created>1552649469919</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1552649469920</updated>
+    </task>
+    <task id="LOCAL-00004" summary=" - sphere">
+      <created>1552668050656</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1552668050656</updated>
+    </task>
+    <task id="LOCAL-00005" summary="  - global cs">
+      <created>1553176244880</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1553176244880</updated>
+    </task>
+    <task id="LOCAL-00006" summary=" - transformations done">
+      <created>1553606701999</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1553606701999</updated>
+    </task>
+    <task id="LOCAL-00007" summary=" - refactor">
+      <created>1553606734950</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1553606734950</updated>
+    </task>
+    <task id="LOCAL-00008" summary=" - update function comments">
+      <created>1553607354529</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1553607354529</updated>
+    </task>
+    <task id="LOCAL-00009" summary=" - lights">
+      <created>1554644762854</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1554644762854</updated>
+    </task>
+    <task id="LOCAL-00010" summary=" - light vector moving sphere">
+      <created>1554811245800</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1554811245800</updated>
+    </task>
+    <task id="LOCAL-00011" summary=" - light transformations&#10; - phong shading">
+      <created>1557014727068</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1557014727068</updated>
+    </task>
+    <task id="LOCAL-00012" summary=" - Gouraud shading">
+      <created>1557018505782</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1557018505782</updated>
+    </task>
+    <task id="LOCAL-00013" summary=" - transformation bug fixed">
+      <created>1557019139690</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1557019139690</updated>
+    </task>
+    <task id="LOCAL-00014" summary=" - readme">
+      <created>1557019412823</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1557019412823</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="162515000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13275039" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3291815" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.31494662" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.2455516" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+    <option name="exactExcludedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/../../../../../Morpher/morpher-frontend-vue/node_modules/@vue/cli-plugin-unit-jest/generator/template/tests/unit/example.spec.js" />
+      </list>
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="- CLEANING" />
+    <MESSAGE value=" - projection matrix global transform" />
+    <MESSAGE value=" - debug ss2019" />
+    <MESSAGE value=" - sphere" />
+    <MESSAGE value="  - global cs" />
+    <MESSAGE value=" - transformations done" />
+    <MESSAGE value=" - refactor" />
+    <MESSAGE value=" - update function comments" />
+    <MESSAGE value=" - lights" />
+    <MESSAGE value=" - light vector moving sphere" />
+    <MESSAGE value=" - light transformations&#10; - phong shading" />
+    <MESSAGE value=" - Gouraud shading" />
+    <MESSAGE value=" - transformation bug fixed" />
+    <MESSAGE value=" - readme" />
+    <option name="LAST_COMMIT_MESSAGE" value=" - readme" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/initShaders.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="26">
+          <caret line="33" column="9" selection-start-line="33" selection-start-column="9" selection-end-line="33" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="52" selection-start-line="52" selection-end-line="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1343">
+          <caret line="79" column="24" selection-start-line="79" selection-start-column="24" selection-end-line="79" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/global.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3298">
+          <caret line="195" column="4" selection-start-line="195" selection-start-column="4" selection-end-line="195" selection-end-column="4" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sphere.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2975">
+          <caret line="176" column="6" selection-start-line="176" selection-start-column="6" selection-end-line="176" selection-end-column="6" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gl-matrix.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="98260">
+          <caret line="5780" column="16" selection-start-line="5780" selection-start-column="9" selection-end-line="5780" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/readme.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="24" column="37" selection-start-line="24" selection-start-column="37" selection-end-line="24" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/objects.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3808">
+          <caret line="225" column="116" selection-start-line="225" selection-start-column="116" selection-end-line="225" selection-end-column="116" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

@@ -1,0 +1,103 @@
+<html>
+<head>
+	<title> LAB1 - Mihajlo Nikodijevic </title>
+
+	<script id="vertex-shader" type="x-shader/x-vertex">
+			precision mediump float;
+			attribute vec3 vertPosition;
+			attribute vec3 vertColor;
+			attribute vec3 aNormal;
+
+			uniform mat4 pMatrix;
+			uniform mat4 vMatrix;
+			uniform mat4 wMatrix;
+			uniform mat4 mMatrix;
+			uniform mat3 mMatrixInv;
+			uniform vec3 pLight;
+			uniform float specularEnabled;
+			uniform float phong;
+			uniform vec3 camera;
+
+			varying mediump vec3 fragColor;
+			varying mediump vec3 vertNormal;
+			varying mediump vec3 light;
+			varying mediump vec3 vertPos;
+
+			void main() {
+				// Position, color and normal
+				gl_Position = pMatrix * vMatrix * mMatrix * vec4(vertPosition, 1.0);
+				vertNormal = normalize(mat3(mMatrixInv) * aNormal);
+
+				// Calculate world coordinate of vertex - for specular
+                vertPos = vec3(gl_Position);
+
+				// Point light
+				light = normalize(vec3(pLight - vertPos));
+
+				vec3 ambientIntensity = vec3(0.15, 0.15, 0.15);
+				float nDotL = max(-dot(light, vertNormal), 0.0);
+
+				if (phong > 0.0) {
+					fragColor = vertColor;
+				} else {
+					if (specularEnabled > 0.0) {
+						vec3 cameraDir = normalize(camera - vertPos);
+						vec3 hVector = normalize(cameraDir + light);
+						float specularPower = 0.5;
+						float specularShininess = 50.0;
+						float specularBrightness = (specularPower * pow(max(0.0, dot(vertNormal, hVector)), specularShininess));
+						fragColor = (vertColor * nDotL + vec3(1.0, 1.0, 1.0) * specularBrightness + vertColor * ambientIntensity);
+					} else {
+						fragColor = vertColor * nDotL + vertColor * ambientIntensity;
+					}
+				}
+			}
+
+	</script>
+
+	<script id="fragment-shader" type="x-shader/x-fragment">
+			precision mediump float;
+			varying mediump vec3 fragColor;
+            varying mediump vec3 vertNormal;
+            varying mediump vec3 light;
+            varying mediump vec3 vertPos;
+			uniform float specularEnabled;
+			uniform float phong;
+			uniform vec3 camera;
+
+			void main() {
+				vec3 ambientIntensity = vec3(0.15, 0.15, 0.15);
+				float nDotL = max(-dot(light, vertNormal), 0.0);
+
+                // Switch specular light
+				if (phong > 0.0) {
+					if (specularEnabled > 0.0) {
+						vec3 cameraDir = normalize(camera - vertPos);
+						vec3 hVector = normalize(cameraDir + light);
+						float specularPower = 0.5;
+						float specularShininess = 50.0;
+						float specularBrightness = (specularPower * pow(max(0.0, dot(vertNormal, hVector)), specularShininess));
+						gl_FragColor = vec4((fragColor * nDotL + vec3(1.0, 1.0, 1.0) * specularBrightness + fragColor * ambientIntensity), 1.0);
+					} else {
+						gl_FragColor = vec4(fragColor * nDotL + fragColor * ambientIntensity, 1.0);
+					}
+				} else {
+					gl_FragColor = vec4(fragColor, 1.0);
+				}
+			}
+
+	</script>
+</head>
+
+<body onload="Init();">
+<h1 style="margin-left:230px;"> Nikodijevic Mihajlo GFX Lab1a/Lab1b </h1>
+<canvas id="webgl-canvas" width="900" height="900"></canvas>
+
+<script src="gl-matrix.js"></script>
+<script src="initShaders.js"></script>
+<script src="global.js"></script>
+<script src="sphere.js"></script>
+<script src="objects.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
