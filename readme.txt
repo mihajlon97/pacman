@@ -3,7 +3,7 @@
 ----------------------------------------------------------
 
 Used Library - gl-matrix.js
-Pyramid vertices used from tutorial zip code.
+Labyrinth vertices used from tutorial zip code.
 Pacman vertices from the internet
 
 - Nothing special to run my program just open index.html
@@ -17,7 +17,7 @@ I expect all points :)
 ----------------------------------------------------------
 
 Used Library - gl-matrix.js
-Pyramid vertices used from tutorial zip code.
+Labyrinth vertices used from tutorial zip code.
 Pacman vertices from the internet
 
 - Nothing special to run my program just open index.html

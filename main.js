@@ -1,7 +1,7 @@
 // Global Variables, first object empty, because selection starts with 1
-var objects = [{}], canvas, gl, program, flag = false;
+var objects = [{}], labyrinth = [], canvas, gl, program, flag = false;
 var wMatrix = mat4.create();
-var lightPosition = [0.0, 10.0, 0.0];
+var lightPosition = [5.0, -10.0, 30.0];
 var lightSelected = false;
 var specularEnabled = 0.0;
 var phong = 1.0;
@@ -31,35 +31,46 @@ var Init = function () {
 	mat4.invert(vMatrix, vMatrix);
 	mat4.perspective(pMatrix, glMatrix.toRadian(45), canvas.width / canvas.height, 0.4, 2000.0);
 
-	// Create 9 objects
+
+	// Create labyrinth
 	try {
-		objects.push(new Pacman(gl, [2, 2, 0]));
-		objects.push(new Pacman(gl, [0, 2, 0]));
-		objects.push(new Pacman(gl, [-2, 2, 0]));
-		objects.push(new Pyramid(gl, [2, 0, 0]));
+		labyrinth.push(new Labyrinth(gl, [0, 5, 0]));
+		labyrinth.push(new Labyrinth(gl, [5, 0, 0]));
+		labyrinth.push(new Labyrinth(gl, [-5, 0, 0]));
+	} catch (E) {
+		console.log(E);
+	}
+
+
+
+	// Create objects
+	try {
 		objects.push(new Pacman(gl, [0, 0, 0]));
-		objects.push(new Pyramid(gl, [-2, 0, 0]));
-		objects.push(new Pacman(gl, [2, -2, 0]));
-		objects.push(new Pacman(gl, [0, -2, 0]));
-		objects.push(new Pacman(gl, [-2, -2, 0]));
-		objects.push(new Global(gl, [0, 0, 0]));
 	} catch (E) {
 		console.log(E);
 	}
 
 	// Render all objects
 	// Apply Lines if selected
-	var flag = false;
+	var flagObjects = false;
+	var flagLabyrinth = false;
 
 	function render() {
 		gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+		labyrinth.forEach((e, i) => {
+			e.draw(gl, pMatrix, vMatrix);
+			if (!flagLabyrinth) {
+				e.start();
+				if (i === labyrinth.length - 1) flagLabyrinth = true;
+			}
+		});
+
 		objects.forEach((e, i) => {
 			if (i != 0) {
 				e.draw(gl, pMatrix, vMatrix);
-				if (e.selected) e.drawLines(gl, pMatrix);
-				if (!flag) {
+				if (!flagObjects) {
 					e.start();
-					if (i == objects.length - 1) flag = true;
+					if (i === objects.length - 1) flagObjects = true;
 				}
 			}
 		});

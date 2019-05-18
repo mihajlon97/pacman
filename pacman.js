@@ -104,9 +104,9 @@ function Pacman(gl, position = [0, 0, 0]) {
 
 		for (let i = 0; i <= limit; i++) {
 			for (let j = 0; j <= limit; j++) {
-				colors.push(0);
-				colors.push(0);
 				colors.push(0.99);
+				colors.push(0.99);
+				colors.push(0.09);
 			}
 		}
 		gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(colors), gl.STATIC_DRAW);

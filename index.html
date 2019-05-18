@@ -34,7 +34,7 @@
 				// Point light
 				light = normalize(vec3(pLight - vertPos));
 
-				vec3 ambientIntensity = vec3(0.15, 0.15, 0.15);
+				vec3 ambientIntensity = vec3(0.5, 0.5, 0.5);
 				float nDotL = max(-dot(light, vertNormal), 0.0);
 
 				if (phong > 0.0) {
@@ -66,7 +66,7 @@
 			uniform vec3 camera;
 
 			void main() {
-				vec3 ambientIntensity = vec3(0.15, 0.15, 0.15);
+				vec3 ambientIntensity = vec3(0.5, 0.5, 0.5);
 				float nDotL = max(-dot(light, vertNormal), 0.0);
 
                 // Switch specular light
@@ -97,7 +97,7 @@
 <script src="initShaders.js"></script>
 <script src="global.js"></script>
 <script src="pacman.js"></script>
-<script src="objects.js"></script>
+<script src="labyrinth.js"></script>
 <script src="main.js"></script>
 </body>
 </html>

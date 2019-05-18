@@ -2,10 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="449f3611-4461-4088-ac2e-8d66502d6237" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/labyrinth.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/objects.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pacman.js" beforeDir="false" afterPath="$PROJECT_DIR$/pacman.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/readme.txt" beforeDir="false" afterPath="$PROJECT_DIR$/readme.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sphere.js" beforeDir="false" afterPath="$PROJECT_DIR$/pacman.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -88,32 +91,58 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="html" value="30" />
+          <entry key="html" value="41" />
+          <entry key="js" value="457" />
+          <entry key="txt" value="12" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="30" />
+          <entry key="HTML" value="41" />
+          <entry key="JavaScript" value="457" />
+          <entry key="PLAIN_TEXT" value="12" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="js" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="JavaScript" value="1" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="93" column="24" selection-start-line="93" selection-start-column="24" selection-end-line="93" selection-end-column="24" />
+            <state relative-caret-position="344">
+              <caret line="99" selection-start-line="99" selection-end-line="99" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/labyrinth.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="15" column="8" lean-forward="true" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1343">
-              <caret line="79" column="24" selection-start-line="79" selection-start-column="24" selection-end-line="79" selection-end-column="24" />
+            <state relative-caret-position="221">
+              <caret line="40" column="19" lean-forward="true" selection-start-line="40" selection-start-column="19" selection-end-line="40" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -133,11 +162,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pacman.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2975">
-              <caret line="176" column="6" selection-start-line="176" selection-start-column="6" selection-end-line="176" selection-end-column="6" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
+            <state relative-caret-position="340">
+              <caret line="108" column="23" selection-start-line="108" selection-start-column="23" selection-end-line="108" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -160,35 +186,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/objects.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3808">
-              <caret line="225" column="116" selection-start-line="225" selection-start-column="116" selection-end-line="225" selection-end-column="116" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>-1.0</find>
-      <find>mLight</find>
-      <find>glUniform3fv</find>
-      <find>sunlightDirection</find>
-      <find>vertPosition</find>
-      <find>lightSelected</find>
-      <find>lookAt</find>
-      <find>p</find>
-      <find>lightMat</find>
-      <find>vec4</find>
-      <find>ambientIntensity</find>
-      <find>intensity</find>
-      <find>specular</find>
       <find>specularShininess</find>
       <find>aLight</find>
       <find>sunlightIntensity</find>
@@ -206,6 +207,19 @@
       <find>specularEnabled</find>
       <find>numItems</find>
       <find>10</find>
+      <find>Pyramid</find>
+      <find>Labyrinth</find>
+      <find>lBuffer</find>
+      <find>Cube</find>
+      <find>colors</find>
+      <find>cBuffer</find>
+      <find>drawLines</find>
+      <find>inBuffer</find>
+      <find>vertPosition</find>
+      <find>uColor</find>
+      <find>pComponents</find>
+      <find>objects</find>
+      <find>cComponents</find>
     </findStrings>
     <replaceStrings>
       <replace>mMatrix</replace>
@@ -226,6 +240,8 @@
       <replace>pLight</replace>
       <replace>Pyramid</replace>
       <replace>camera</replace>
+      <replace>Labyrinth</replace>
+      <replace>Cube</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -237,9 +253,11 @@
         <option value="$PROJECT_DIR$/global.js" />
         <option value="$PROJECT_DIR$/sphere.js" />
         <option value="$PROJECT_DIR$/objects.js" />
-        <option value="$PROJECT_DIR$/main.js" />
         <option value="$PROJECT_DIR$/readme.txt" />
+        <option value="$PROJECT_DIR$/pacman.js" />
+        <option value="$PROJECT_DIR$/cube.js" />
         <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/main.js" />
       </list>
     </option>
   </component>
@@ -277,12 +295,13 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../momir" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\miki9\Desktop\Notebook\Bachelor Informatik\Semester 5\GFX\lab3_Mihajlo_Nikodijevic_01646292" />
       <recent name="C:\Users\miki9\Desktop\Notebook\Bachelor Informatik\Semester 5\GFX\lab1a_Mihajlo_Nikodijevic_01646292" />
     </key>
   </component>
@@ -340,7 +359,7 @@
       <workItem from="1557227971546" duration="2145000" />
       <workItem from="1557247592391" duration="655000" />
       <workItem from="1557302377327" duration="65000" />
-      <workItem from="1558186486735" duration="157000" />
+      <workItem from="1558186486735" duration="8233000" />
     </task>
     <task id="LOCAL-00001" summary="- CLEANING">
       <created>1540761678287</created>
@@ -440,11 +459,18 @@
       <option name="project" value="LOCAL" />
       <updated>1557019412823</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary=" - pacman">
+      <created>1558186783437</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1558186783437</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="162672000" />
+    <option name="totallyTimeSpent" value="170748000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
@@ -495,7 +521,8 @@
     <MESSAGE value=" - Gouraud shading" />
     <MESSAGE value=" - transformation bug fixed" />
     <MESSAGE value=" - readme" />
-    <option name="LAST_COMMIT_MESSAGE" value=" - readme" />
+    <MESSAGE value=" - pacman" />
+    <option name="LAST_COMMIT_MESSAGE" value=" - pacman" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/initShaders.js">
@@ -505,34 +532,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="93" column="24" selection-start-line="93" selection-start-column="24" selection-end-line="93" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1343">
-          <caret line="79" column="24" selection-start-line="79" selection-start-column="24" selection-end-line="79" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/global.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3298">
           <caret line="195" column="4" selection-start-line="195" selection-start-column="4" selection-end-line="195" selection-end-column="4" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pacman.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2975">
-          <caret line="176" column="6" selection-start-line="176" selection-start-column="6" selection-end-line="176" selection-end-column="6" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
@@ -553,13 +556,41 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/objects.js">
+    <entry file="file://$PROJECT_DIR$/pacman.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3808">
-          <caret line="225" column="116" selection-start-line="225" selection-start-column="116" selection-end-line="225" selection-end-column="116" />
+        <state relative-caret-position="340">
+          <caret line="108" column="23" selection-start-line="108" selection-start-column="23" selection-end-line="108" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/labyrinth.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2206">
+          <caret line="92" column="14" lean-forward="true" selection-start-line="70" selection-start-column="6" selection-end-line="92" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="344">
+          <caret line="99" selection-start-line="99" selection-end-line="99" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/labyrinth.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="8" lean-forward="true" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="40" column="19" lean-forward="true" selection-start-line="40" selection-start-column="19" selection-end-line="40" selection-end-column="19" />
         </state>
       </provider>
     </entry>
