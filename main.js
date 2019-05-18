@@ -1,7 +1,7 @@
 // Global Variables, first object empty, because selection starts with 1
-var objects = [{}], labyrinth = [], canvas, gl, program, flag = false;
+var pacman = null, labyrinth = [], canvas, gl, program, flag = false;
 var wMatrix = mat4.create();
-var lightPosition = [5.0, -10.0, 30.0];
+var lightPosition = [3.0, -5.0, 35.0];
 var lightSelected = false;
 var specularEnabled = 0.0;
 var phong = 1.0;
@@ -27,50 +27,64 @@ var Init = function () {
 	gl.clearColor(0.5, 0.5, 0.5, 1.0);
 	gl.enable(gl.DEPTH_TEST);
 
-	mat4.lookAt(vMatrix, vec3.fromValues(0, 0, -10), vec3.fromValues(0, 0, 0), vec3.fromValues(0, 1, 0));
+	mat4.lookAt(vMatrix, vec3.fromValues(0, 4, -35), vec3.fromValues(-3, -25, 0), vec3.fromValues(0, 1, 0));
 	mat4.invert(vMatrix, vMatrix);
 	mat4.perspective(pMatrix, glMatrix.toRadian(45), canvas.width / canvas.height, 0.4, 2000.0);
 
 
 	// Create labyrinth
 	try {
-		labyrinth.push(new Labyrinth(gl, [0, 5, 0]));
-		labyrinth.push(new Labyrinth(gl, [5, 0, 0]));
-		labyrinth.push(new Labyrinth(gl, [-5, 0, 0]));
+		labyrinth.push(new Ground(gl, [0, 0, 0]));
+
+		// Down border
+		for (var i = 0; i <= 20; i+=2) {
+			// Down border
+			labyrinth.push(new Labyrinth(gl, [i, 1, -20]));
+			labyrinth.push(new Labyrinth(gl, [-i, 1, -20]));
+
+			// Up border
+			labyrinth.push(new Labyrinth(gl, [i, 1, 20]));
+			labyrinth.push(new Labyrinth(gl, [-i, 1, 20]));
+
+			// Left border
+			labyrinth.push(new Labyrinth(gl, [20, 1, i]));
+			labyrinth.push(new Labyrinth(gl, [20, 1, -i]));
+
+			// Right border
+			labyrinth.push(new Labyrinth(gl, [-20, 1, i]));
+			labyrinth.push(new Labyrinth(gl, [-20, 1, -i]));
+		}
+
+
+
 	} catch (E) {
 		console.log(E);
 	}
 
-
-
-	// Create objects
+	// Create pacman
 	try {
-		objects.push(new Pacman(gl, [0, 0, 0]));
+		pacman = new Pacman(gl, [0, 1, 0]);
 	} catch (E) {
 		console.log(E);
 	}
 
 	// Render all objects
 	// Apply Lines if selected
-	var flagObjects = false;
-	var flagLabyrinth = false;
+	var flagStarted = false;
 
 	function render() {
 		gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+		// Draw pacman
+		pacman.draw(gl, pMatrix, vMatrix);
+
+		// Draw labyrinth
 		labyrinth.forEach((e, i) => {
 			e.draw(gl, pMatrix, vMatrix);
-			if (!flagLabyrinth) {
+			if (!flagStarted) {
 				e.start();
-				if (i === labyrinth.length - 1) flagLabyrinth = true;
-			}
-		});
-
-		objects.forEach((e, i) => {
-			if (i != 0) {
-				e.draw(gl, pMatrix, vMatrix);
-				if (!flagObjects) {
-					e.start();
-					if (i === objects.length - 1) flagObjects = true;
+				if (i === labyrinth.length - 1) {
+					flagStarted = true;
+					pacman.start();
 				}
 			}
 		});
@@ -83,136 +97,22 @@ var Init = function () {
 
 	// Handle user input events
 	document.addEventListener("keydown", function (event) {
-		// Selecting object, one or all if 0 is pressed
-		if (['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'].includes(event.key)) {
-			objects['selected'] = [];
-			objects.forEach((e, i) => {
-				e.selected = false;
-				if (event.key == '0' || i == event.key) {
-					if (i !== 0) {
-						objects['selected'].push(e);
-						e.global = (event.key === '0');
-						e.selected = true;
-					}
-				}
-			});
-		} else {
-			if (event.key === 'l' || event.key === 'L') {
-				console.log("Light transformations");
-				lightSelected = !lightSelected;
-			}
-		}
-
-		// If no object selected, exit
-		if ((objects['selected'] === null || objects['selected'] === undefined || objects['selected'].length === 0) && !lightSelected && event.key !== 'p' && event.key !== 'o' && event.key !== 'i' && event.key !== 'u'){
-			console.log("return", objects['selected']);
-			return;
-		}
-
 		// Handle event.key inputs
 		switch (event.key) {
-			case "w" : {
-				if(!lightSelected) objects['selected'].map(e => e.update(0.1, 0, 0));
-				else vec3.rotateX(lightPosition, lightPosition, [0,0,0], 0.1);
-				break;
-			}
-			case "s" : {
-				if(!lightSelected) objects['selected'].map(e => e.update(-0.1, 0, 0));
-				else vec3.rotateX(lightPosition, lightPosition, [0,0,0], -0.1);
-				break;
-			}
-			case "e" : {
-				if(!lightSelected) objects['selected'].map(e => e.update(0, 0.1, 0));
-				else vec3.rotateY(lightPosition, lightPosition, [0,0,0], 0.1);
-				break;
-			}
-			case "q" : {
-				if(!lightSelected) objects['selected'].map(e => e.update(0, -0.1, 0));
-				else vec3.rotateY(lightPosition, lightPosition, [0,0,0], -0.1);
-				break;
-			}
-			case "d" : {
-				if(!lightSelected) objects['selected'].map(e => e.update(0, 0, 0.1));
-				else vec3.rotateZ(lightPosition, lightPosition, [0,0,0], 0.1);
-				break;
-			}
-			case "a" : {
-				if(!lightSelected) objects['selected'].map(e => e.update(0, 0, -0.1));
-				else vec3.rotateZ(lightPosition, lightPosition, [0,0,0], -0.1);
-				break;
-			}
 			case "ArrowDown" : {
-				if (lightSelected) lightPosition[1] += 0.3;
-				else objects['selected'].map(e => e.update(0, 0, 0, [0, -0.03, 0]));
+				pacman.update(0, 0, 0, [0, 0, -0.05]);
 				break;
 			}
 			case "ArrowUp" : {
-				if (lightSelected) lightPosition[1] -= 0.3;
-				else objects['selected'].map(e => e.update(0, 0, 0, [0, 0.03, 0]));
+				pacman.update(0, 0, 0, [0, 0, 0.05]);
 				break;
 			}
 			case "ArrowLeft" : {
-				if (lightSelected) lightPosition[0] += 0.3;
-				else objects['selected'].map(e => e.update(0, 0, 0, [0.03, 0, 0]));
+				pacman.update(0, 0, 0, [0.05, 0, 0]);
 				break;
 			}
 			case "ArrowRight" : {
-				if (lightSelected) lightPosition[0] -= 0.3;
-				else objects['selected'].map(e => e.update(0, 0, 0, [-0.03, 0, 0]));
-				break;
-			}
-			case "," : {
-				if (lightSelected) lightPosition[2] += 0.3;
-				else objects['selected'].map(e => e.update(0, 0, 0, [0, 0, 0.03]));
-				break;
-			}
-			case "." : {
-				if (lightSelected) lightPosition[2] -= 0.3;
-				else objects['selected'].map(e => e.update(0, 0, 0, [0, 0, -0.03]));
-				break;
-			}
-			case "x" : {
-				if(!lightSelected) objects['selected'].map(e => e.update(0, 0, 0, [0, 0, 0], [0.9, 1, 1]));
-				break;
-			}
-			case "y" : {
-				if(!lightSelected) objects['selected'].map(e => e.update(0, 0, 0, [0, 0, 0], [1, 0.9, 1]));
-				break;
-			}
-			case "z" : {
-				if(!lightSelected) objects['selected'].map(e => e.update(0, 0, 0, [0, 0, 0], [1, 1, 0.9]));
-				break;
-			}
-			case "X" : {
-				if(!lightSelected) objects['selected'].map(e => e.update(0, 0, 0, [0, 0, 0], [1.1, 1, 1]));
-				break;
-			}
-			case "Y" : {
-				if(!lightSelected) objects['selected'].map(e => e.update(0, 0, 0, [0, 0, 0], [1, 1.1, 1]));
-				break;
-			}
-			case "Z" : {
-				if(!lightSelected) objects['selected'].map(e => e.update(0, 0, 0, [0, 0, 0], [1, 1, 1.1]));
-				break;
-			}
-			case "u" : {
-				phong = 0.0;
-				specularEnabled = 0.0;
-				break;
-			}
-			case "i" : {
-				phong = 0.0;
-				specularEnabled = 1.0;
-				break;
-			}
-			case "p" : {
-				phong = 1.0;
-				specularEnabled = 1.0;
-				break;
-			}
-			case "o" : {
-				phong = 1.0;
-				specularEnabled = 0.0;
+				pacman.update(0, 0, 0, [-0.05, 0, 0]);
 				break;
 			}
 		}
