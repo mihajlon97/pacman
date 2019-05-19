@@ -68,33 +68,17 @@ var Init = function () {
 	// Start rendering
 	requestAnimationFrame(render);
 
-var factor = 1;
-var rotate = 0;
-	// setInterval(() => {
-	// 	animatePacman = animatePacman === 1.55 ? 1.55 : 1.55;
-	// 	pacman = new Pacman(gl, [0, 1, 0], animatePacman);
-	// 	pacman.start();
-	// 	rotate += 0.1*factor
-	// 	//pacman.update(rotate, 0, 0, [0, 0, 0]);
-	// },20)
-
-	setInterval(() => {
-		factor *= -1;
-	},300)
-
-
 	var up = true;
 	var value = 1.55;
 	var increment = 0.03;
 	var ceiling = 1.80;
 
 	function mountAnimateUpAndDown() {
-		let oldPos = pacman.position;
 		pacman.initialize();
 		if (up === true && value <= ceiling) {
 			value += increment;
 			pacman.global = false;
-			pacman.update(increment, 0, 0, oldPos);
+			pacman.update(increment, 0, 0);
 			pacman.global = true;
 			if (value === ceiling) {
 				up = false;
@@ -133,22 +117,26 @@ var rotate = 0;
 				mat4.translate(vMatrix, vMatrix, [0, 0, 0.2]);
 				pacman.global = true;
 				pacman.update(0, 0, 0, [0, 0, -0.2]);
+				pacman.rotateToDown();
 				break;
 			}
 			case "ArrowUp" : {
 				mat4.translate(vMatrix, vMatrix, [0, 0, -0.2]);
 				pacman.global = true;
 				pacman.update(0, 0, 0, [0, 0, 0.2]);
+				pacman.rotateToUp();
 				break;
 			}
 			case "ArrowLeft" : {
 				mat4.translate(vMatrix, vMatrix, [-0.2, 0, 0]);
 				pacman.update(0, 0, 0, [0.2, 0, 0]);
+				pacman.rotateToLeft();
 				break;
 			}
 			case "ArrowRight" : {
 				mat4.translate(vMatrix, vMatrix, [0.2, 0, 0]);
 				pacman.update(0, 0, 0, [-0.2, 0, 0]);
+				pacman.rotateToRight();
 				break;
 			}
 			case "w" : {

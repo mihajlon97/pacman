@@ -144,6 +144,7 @@ function Pacman(gl, position = [0, 0, 0]) {
 	this.initialize();
 
 	// Object Variables
+	this.lookDirection = "down";
 	this.animate = animatePacman;
 	this.lcPosition = position;
 	this.scale = [0.70, 0.70, 0.70];
@@ -183,13 +184,70 @@ function Pacman(gl, position = [0, 0, 0]) {
 
 
 	this.start = function () {
-		mat4.scale(this.mMatrix, this.mMatrix, this.scale);
 		mat4.translate(this.mMatrix, this.mMatrix, this.lcPosition);
-		mat4.rotateX(this.mMatrix, this.mMatrix, -1);
+		mat4.rotateX(this.mMatrix, this.mMatrix, -1.5);
+		mat4.scale(this.mMatrix, this.mMatrix, this.scale);
 		mat4.multiply(this.lcMatrix, this.lcMatrix, this.mMatrix);
 	};
 
+	this.rotateToLeft = function () {
+		if (this.lookDirection !== "left") {
+			mat4.identity(this.mMatrix);
+			mat4.translate(this.mMatrix, this.mMatrix, this.lcPosition);
+			mat4.rotateX(this.mMatrix, this.mMatrix, -1.5);
+			mat4.rotateZ(this.mMatrix, this.mMatrix, -1.5);
+			mat4.scale(this.mMatrix, this.mMatrix, this.scale);
+			mat4.identity(this.lcMatrix);
+			mat4.multiply(this.lcMatrix, this.lcMatrix, this.mMatrix);
+			this.lookDirection = "left"
+		}
+	};
+
+	this.rotateToRight = function () {
+		if (this.lookDirection !== "right") {
+			mat4.identity(this.mMatrix);
+			mat4.translate(this.mMatrix, this.mMatrix, this.lcPosition);
+			mat4.rotateX(this.mMatrix, this.mMatrix, -1.5);
+			mat4.rotateZ(this.mMatrix, this.mMatrix, 1.5);
+			mat4.scale(this.mMatrix, this.mMatrix, this.scale);
+			mat4.identity(this.lcMatrix);
+			mat4.multiply(this.lcMatrix, this.lcMatrix, this.mMatrix);
+			this.lookDirection = "right"
+		}
+	};
+
+	this.rotateToUp = function () {
+		if (this.lookDirection !== "up") {
+			mat4.identity(this.mMatrix);
+			mat4.translate(this.mMatrix, this.mMatrix, this.lcPosition);
+			mat4.rotateX(this.mMatrix, this.mMatrix, -1.5);
+			mat4.rotateZ(this.mMatrix, this.mMatrix, -2.5);
+			mat4.scale(this.mMatrix, this.mMatrix, this.scale);
+			mat4.identity(this.lcMatrix);
+			mat4.multiply(this.lcMatrix, this.lcMatrix, this.mMatrix);
+			this.lookDirection = "up"
+		}
+	};
+
+	this.rotateToDown = function () {
+		if (this.lookDirection !== "down") {
+			mat4.identity(this.mMatrix);
+			mat4.translate(this.mMatrix, this.mMatrix, this.lcPosition);
+			mat4.rotateX(this.mMatrix, this.mMatrix, -1.5);
+			mat4.scale(this.mMatrix, this.mMatrix, this.scale);
+			mat4.identity(this.lcMatrix);
+			mat4.multiply(this.lcMatrix, this.lcMatrix, this.mMatrix);
+			this.lookDirection = "down"
+		}
+	};
+
 	this.update = function (x, y, z, position = [0, 0, 0], scale = [1, 1, 1]) {
+
+		// Sum postion vector with existing position if different
+		this.lcPosition = this.lcPosition.map(function (num, idx) {
+			return num + position[idx];
+		});
+
 		// Global transformations
 		if (this.global) {
 			// Move the Object to the center
