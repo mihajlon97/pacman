@@ -208,6 +208,7 @@ function Point(gl, position = [0, 0, 0], tiny = false) {
 	}
 
 	// Object Variables
+	this.pointSound = new sound("sounds/point.mp3");
 	this.lcPosition = position;
 	this.scale = [0.1, 0.1, 0.1];
 	this.tiny = [0.2, 0.2, 0.2];
@@ -252,6 +253,7 @@ function Point(gl, position = [0, 0, 0], tiny = false) {
 
 	this.hide = function () {
 		if (!this.hidden) {
+			this.pointSound.play();
 			this.hidden = true;
 			mat4.scale(this.mMatrix, this.mMatrix, [0,0,0]);
 			pointsCollected++;
@@ -260,6 +262,7 @@ function Point(gl, position = [0, 0, 0], tiny = false) {
 
 			if (pointsCollected === 70) {
 				document.getElementById("message").innerHTML = "Win! You rock man! :) Restarting...";
+				winSound.play();
 				setTimeout(() => {
 					location.reload();
 				}, 5000)

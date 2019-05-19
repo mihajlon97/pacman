@@ -144,6 +144,7 @@ function Pacman(gl, position = [0, 0, 0]) {
 	this.initialize();
 
 	// Object Variables
+	this.movingDirection = null;
 	this.lookDirection = "down";
 	this.animate = animatePacman;
 	this.lcPosition = position;
@@ -192,6 +193,7 @@ function Pacman(gl, position = [0, 0, 0]) {
 
 	this.rotate = function (lookDirection, degree) {
 		if (this.lookDirection !== lookDirection) {
+			// this.movingDirection = lookDirection;
 			mat4.identity(this.mMatrix);
 			mat4.translate(this.mMatrix, this.mMatrix, this.lcPosition);
 			mat4.rotateX(this.mMatrix, this.mMatrix, -1.5);
@@ -203,6 +205,7 @@ function Pacman(gl, position = [0, 0, 0]) {
 		}
 	};
 
+	// Get distance between 2 point using pythagoras
 	function getDistance(x1, z1, x2, z2) {
 		let xDistance = x2 - x1;
 		let zDistance = z2 - z1;
@@ -211,7 +214,30 @@ function Pacman(gl, position = [0, 0, 0]) {
 	}
 
 
-	this.update = function (x, y, z, position = [0, 0, 0], scale = [1, 1, 1]) {
+	this.update = function (x = 0, y = 0, z = 0, position = [0, 0, 0], scale = [1, 1, 1]) {
+
+		/*switch (this.movingDirection) {
+			case "right" : {
+				position = [-0.25, 0, 0];
+				break;
+			}
+				case "left" : {
+					position = [0.25, 0, 0];
+					break;
+				}
+				case "up" : {
+					position = [0, 0, 0.25];
+					break;
+				}
+				case "down" : {
+					position = [0, 0, -0.25];
+					break;
+				}
+				default: {
+					position = [0, 0, 0]
+				}
+			}*/
+
 
 		let canMove = true;
 		if (!arraysEqual(position, [0, 0, 0])) {
@@ -222,6 +248,7 @@ function Pacman(gl, position = [0, 0, 0]) {
 			labyrinth.forEach((e, i) => {
 				if (canMove && i > 0 && getDistance(this.lcPosition[0], this.lcPosition[2], e.lcPosition[0], e.lcPosition[2]) < 1){
 					canMove = false;
+					this.movingDirection = null;
 				}
 			});
 

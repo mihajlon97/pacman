@@ -1,11 +1,12 @@
 // Global Variables, first object empty, because selection starts with 1
-var pacman = null, labyrinth = [], points = [], pointsCollected = 60, canvas, gl, program, flag = false;
+var pacman = null, labyrinth = [], points = [], pointsCollected = 0, canvas, gl, program, flag = false;
 var wMatrix = mat4.create();
 var lightPosition = [5.0, -20.0, 40.0];
 var lightSelected = false;
 var specularEnabled = 0.0;
 var phong = 1.0;
 var animatePacman = 2;
+var winSound = new sound("sounds/win.mp3");
 // Init function called onload body event
 var Init = function () {
 	canvas = document.getElementById('webgl-canvas');
@@ -92,7 +93,7 @@ var Init = function () {
 		if (up === true && value <= ceiling) {
 			value += increment;
 			pacman.global = false;
-			pacman.update(increment, 0, 0);
+			pacman.update(increment);
 			pacman.global = true;
 			if (value === ceiling) {
 				up = false;
@@ -101,7 +102,7 @@ var Init = function () {
 			up = false;
 			value -= increment;
 			pacman.global = false;
-			pacman.update(-increment, 0, 0, [0, 0, 0]);
+			pacman.update(-increment);
 			pacman.global = true;
 			if (value === 1.55) {
 				up = true;
@@ -112,23 +113,13 @@ var Init = function () {
 	}
 	setInterval(mountAnimateUpAndDown, 30);
 
-
-
 	// Handle user input events
 	document.addEventListener("keydown", function (event) {
 		// Handle event.key inputs
 		switch (event.key) {
-			case "m" : {
-				console.log("animatePacman: " + animatePacman);
-				animatePacman = animatePacman === 1.6 ? 1.65 : 1.6;
-				pacman = new Pacman(gl, [0, 1, 0], animatePacman);
-				pacman.start();
-				pacman.update(animatePacman === 1.6 ? -0.3 : 0.3, 0, 0, [0, 0, 0]);
-
-				break;
-			}
 			case "ArrowDown" : {
 				pacman.global = true;
+				pacman.movingDirection = "down";
 				if (pacman.update(0, 0, 0, [0, 0, -0.25]))
 					mat4.translate(vMatrix, vMatrix, [0, 0, 0.25]);
 				pacman.rotate("down", 0);
@@ -136,18 +127,21 @@ var Init = function () {
 			}
 			case "ArrowUp" : {
 				pacman.global = true;
+				pacman.movingDirection = "up";
+				pacman.rotate("up", -2.5);
 				if (pacman.update(0, 0, 0, [0, 0, 0.25]))
 					mat4.translate(vMatrix, vMatrix, [0, 0, -0.25]);
-				pacman.rotate("up", -2.5);
 				break;
 			}
 			case "ArrowLeft" : {
+				// pacman.movingDirection = "left";
 				if(pacman.update(0, 0, 0, [0.25, 0, 0]))
 					mat4.translate(vMatrix, vMatrix, [-0.25, 0, 0]);
 				pacman.rotate("left", -1.5);
 				break;
 			}
 			case "ArrowRight" : {
+				pacman.movingDirection = "right";
 				if(pacman.update(0, 0, 0, [-0.25, 0, 0]))
 					mat4.translate(vMatrix, vMatrix, [0.25, 0, 0]);
 				pacman.rotate("right", 1.5);
@@ -180,3 +174,19 @@ var Init = function () {
 		}
 	});
 };
+
+
+function sound(src) {
+	this.sound = document.createElement("audio");
+	this.sound.src = src;
+	this.sound.setAttribute("preload", "auto");
+	this.sound.setAttribute("controls", "none");
+	this.sound.style.display = "none";
+	document.body.appendChild(this.sound);
+	this.play = function(){
+		this.sound.play();
+	}
+	this.stop = function(){
+		this.sound.pause();
+	}
+}
