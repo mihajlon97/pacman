@@ -215,30 +215,6 @@ function Pacman(gl, position = [0, 0, 0]) {
 
 
 	this.update = function (x = 0, y = 0, z = 0, position = [0, 0, 0], scale = [1, 1, 1]) {
-
-		/*switch (this.movingDirection) {
-			case "right" : {
-				position = [-0.25, 0, 0];
-				break;
-			}
-				case "left" : {
-					position = [0.25, 0, 0];
-					break;
-				}
-				case "up" : {
-					position = [0, 0, 0.25];
-					break;
-				}
-				case "down" : {
-					position = [0, 0, -0.25];
-					break;
-				}
-				default: {
-					position = [0, 0, 0]
-				}
-			}*/
-
-
 		let canMove = true;
 		if (!arraysEqual(position, [0, 0, 0])) {
 			// Sum postion vector with existing position if different
