@@ -151,6 +151,7 @@ var Init = function () {
 
 	// Handle user input events
 	document.addEventListener("keydown", function (event) {
+		console.log(event);
 		// Handle event.key inputs
 		switch (event.key) {
 			case "ArrowDown" : {

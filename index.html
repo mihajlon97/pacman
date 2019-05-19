@@ -1,7 +1,33 @@
 <html>
 <head>
 	<title> Pacman - Mihajlo Nikodijevic - Lab3 </title>
+	<style>
+		button {
+			background-color: #4CAF50; /* Green */
+			border: none;
+			color: white;
+			padding: 16px 32px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 16px;
+			margin: 4px 2px;
+			-webkit-transition-duration: 0.4s; /* Safari */
+			transition-duration: 0.4s;
+			cursor: pointer;
+		}
 
+		button {
+			background-color: white;
+			color: black;
+			border: 2px solid #008CBA;
+		}
+
+		button:hover {
+			background-color: #008CBA;
+			color: white;
+		}
+	</style>
 	<script id="vertex-shader" type="x-shader/x-vertex">
 			precision mediump float;
 			attribute vec3 vertPosition;
@@ -106,7 +132,26 @@
 <h4 > Points: <span id="points">0</span> </h4>
 <h3 id="message" style="margin-left:230px;"></h3>
 <canvas id="webgl-canvas" width="900" height="900"></canvas>
+<div style="margin-left: 330px; margin-top: 50px;">
+	<button style="margin-left: 100px;" onclick="moveEvent('up')">↑</button>
+	<br>
+	<button style="margin-right: 22px;" onclick="moveEvent('left')">←</button>
+	MOVE
+	<button style="margin-left: 22px;" onclick="moveEvent('right')">→</button>
+	<br>
+	<button style="margin-left: 100px;" onclick="moveEvent('down')">↓</button>
+</div>
 
+<script>
+	function moveEvent(dir) {
+		switch (dir) {
+		  case "up" : document.dispatchEvent(new KeyboardEvent('keydown',{'key':'ArrowUp'})); break;
+		  case "down" : document.dispatchEvent(new KeyboardEvent('keydown',{'key':'ArrowDown'})); break;
+		  case "right" : document.dispatchEvent(new KeyboardEvent('keydown',{'key':'ArrowRight'})); break;
+		  case "left" : document.dispatchEvent(new KeyboardEvent('keydown',{'key':'ArrowLeft'})); break;
+		}
+	}
+</script>
 <script src="gl-matrix.js"></script>
 <script src="initShaders.js"></script>
 <script src="global.js"></script>
