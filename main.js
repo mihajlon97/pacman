@@ -110,6 +110,42 @@ var Init = function () {
 		}
 		animatePacman = value;
 
+
+
+		if (pacman.movingDirection) {
+			pacman.global = true;
+			let position = [0, 0, 0];
+			let degree = 0;
+			switch (pacman.movingDirection) {
+				case "right" : {
+					position = [-0.25, 0, 0];
+					degree = 1.5;
+					break;
+				}
+				case "left" : {
+					position = [0.25, 0, 0];
+					degree = -1.5;
+					break;
+				}
+				case "up" : {
+					position = [0, 0, 0.25];
+					degree = -2.5;
+					break;
+				}
+				case "down" : {
+					position = [0, 0, -0.25];
+					degree = 0;
+					break;
+				}
+			}
+
+			if (pacman.update(0, 0, 0, position)) {
+				position[0] = -1 * position[0];
+				position[2] = -1 * position[2];
+				mat4.translate(vMatrix, vMatrix, position);
+			}
+			pacman.rotate(pacman.movingDirection, degree);
+		}
 	}
 	setInterval(mountAnimateUpAndDown, 30);
 
@@ -118,33 +154,19 @@ var Init = function () {
 		// Handle event.key inputs
 		switch (event.key) {
 			case "ArrowDown" : {
-				pacman.global = true;
 				pacman.movingDirection = "down";
-				if (pacman.update(0, 0, 0, [0, 0, -0.25]))
-					mat4.translate(vMatrix, vMatrix, [0, 0, 0.25]);
-				pacman.rotate("down", 0);
 				break;
 			}
 			case "ArrowUp" : {
-				pacman.global = true;
 				pacman.movingDirection = "up";
-				pacman.rotate("up", -2.5);
-				if (pacman.update(0, 0, 0, [0, 0, 0.25]))
-					mat4.translate(vMatrix, vMatrix, [0, 0, -0.25]);
 				break;
 			}
 			case "ArrowLeft" : {
-				// pacman.movingDirection = "left";
-				if(pacman.update(0, 0, 0, [0.25, 0, 0]))
-					mat4.translate(vMatrix, vMatrix, [-0.25, 0, 0]);
-				pacman.rotate("left", -1.5);
+				pacman.movingDirection = "left";
 				break;
 			}
 			case "ArrowRight" : {
 				pacman.movingDirection = "right";
-				if(pacman.update(0, 0, 0, [-0.25, 0, 0]))
-					mat4.translate(vMatrix, vMatrix, [0.25, 0, 0]);
-				pacman.rotate("right", 1.5);
 				break;
 			}
 			case "w" : {

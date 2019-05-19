@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="449f3611-4461-4088-ac2e-8d66502d6237" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/sounds/point.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sounds/win.mp3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pacman.js" beforeDir="false" afterPath="$PROJECT_DIR$/pacman.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/point.js" beforeDir="false" afterPath="$PROJECT_DIR$/point.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -91,15 +87,15 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="html" value="184" />
-          <entry key="js" value="6649" />
-          <entry key="txt" value="336" />
+          <entry key="js" value="6893" />
+          <entry key="txt" value="345" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="HTML" value="184" />
-          <entry key="JavaScript" value="6649" />
-          <entry key="PLAIN_TEXT" value="336" />
+          <entry key="JavaScript" value="6893" />
+          <entry key="PLAIN_TEXT" value="345" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -142,11 +138,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" selection-start-line="9" selection-end-line="9" />
+            <state relative-caret-position="194">
+              <caret line="124" column="23" lean-forward="true" selection-start-line="124" selection-start-column="23" selection-end-line="124" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -178,17 +174,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pacman.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="341">
-              <caret line="224" column="19" selection-start-line="224" selection-start-column="19" selection-end-line="224" selection-end-column="19" />
+            <state relative-caret-position="409">
+              <caret line="237" column="9" lean-forward="true" selection-start-line="218" selection-start-column="6" selection-end-line="237" selection-end-column="9" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/point.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="194">
-              <caret line="259" column="24" lean-forward="true" selection-start-line="259" selection-start-column="24" selection-end-line="259" selection-end-column="24" />
+            <state relative-caret-position="211">
+              <caret line="260" lean-forward="true" selection-start-line="260" selection-end-line="260" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -295,8 +291,8 @@
         <option value="$PROJECT_DIR$/labyrinth.js" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/pacman.js" />
-        <option value="$PROJECT_DIR$/main.js" />
         <option value="$PROJECT_DIR$/point.js" />
+        <option value="$PROJECT_DIR$/main.js" />
       </list>
     </option>
   </component>
@@ -404,7 +400,7 @@
       <workItem from="1557227971546" duration="2145000" />
       <workItem from="1557247592391" duration="655000" />
       <workItem from="1557302377327" duration="65000" />
-      <workItem from="1558186486735" duration="60790000" />
+      <workItem from="1558186486735" duration="62877000" />
     </task>
     <task id="LOCAL-00001" summary="- CLEANING">
       <created>1540761678287</created>
@@ -574,11 +570,18 @@
       <option name="project" value="LOCAL" />
       <updated>1558297947085</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary=" - sounds">
+      <created>1558302497612</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1558302497612</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="223305000" />
+    <option name="totallyTimeSpent" value="225392000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
@@ -639,7 +642,8 @@
     <MESSAGE value=" - new labyrinth, basic intersection" />
     <MESSAGE value=" - solid walls done" />
     <MESSAGE value=" - eating points" />
-    <option name="LAST_COMMIT_MESSAGE" value=" - eating points" />
+    <MESSAGE value=" - sounds" />
+    <option name="LAST_COMMIT_MESSAGE" value=" - sounds" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/initShaders.js">
@@ -712,27 +716,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/point.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="211">
+          <caret line="260" lean-forward="true" selection-start-line="260" selection-end-line="260" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/pacman.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="341">
-          <caret line="224" column="19" selection-start-line="224" selection-start-column="19" selection-end-line="224" selection-end-column="19" />
+        <state relative-caret-position="409">
+          <caret line="237" column="9" lean-forward="true" selection-start-line="218" selection-start-column="6" selection-end-line="237" selection-end-column="9" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/point.js">
-      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="194">
-          <caret line="259" column="24" lean-forward="true" selection-start-line="259" selection-start-column="24" selection-end-line="259" selection-end-column="24" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
+          <caret line="124" column="23" lean-forward="true" selection-start-line="124" selection-start-column="23" selection-end-line="124" selection-end-column="23" />
         </state>
       </provider>
     </entry>
