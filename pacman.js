@@ -146,7 +146,7 @@ function Pacman(gl, position = [0, 0, 0]) {
 	// Object Variables
 	this.animate = animatePacman;
 	this.lcPosition = position;
-	this.scale = [0.75, 0.75, 0.75];
+	this.scale = [0.70, 0.70, 0.70];
 
 	this.mMatrix = mat4.create();
 	this.lcMatrix = mat4.create();
@@ -185,8 +185,7 @@ function Pacman(gl, position = [0, 0, 0]) {
 	this.start = function () {
 		mat4.scale(this.mMatrix, this.mMatrix, this.scale);
 		mat4.translate(this.mMatrix, this.mMatrix, this.lcPosition);
-		mat4.rotateX(this.mMatrix, this.mMatrix, -0.9);
-
+		mat4.rotateX(this.mMatrix, this.mMatrix, -1);
 		mat4.multiply(this.lcMatrix, this.lcMatrix, this.mMatrix);
 	};
 
