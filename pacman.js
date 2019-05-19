@@ -1,6 +1,6 @@
 // Pacman object
 // Expected parameter, gl instance and object position
-function Pacman(gl, position = [0, 0, 0]) {
+function Pacman(gl, position = [0, 0, 0], animate) {
 
 	// Shader program
 	if (Pacman.shaderProgram === undefined) {
@@ -32,7 +32,7 @@ function Pacman(gl, position = [0, 0, 0]) {
 	}
 
 	// Buffers
-	if (Pacman.buffers === undefined) {
+	if (Pacman.buffers === undefined || animate !== this.animate) {
 		// Create a buffer with the vertex positions
 		// 3 coordinates per vertex, 3 vertices per triangle
 		// 2 triangles make up the ground plane, 4 triangles make up the sides
@@ -49,11 +49,11 @@ function Pacman(gl, position = [0, 0, 0]) {
 		let vertices = [];
 		let normals = [];
 		for (let j = 0; j <= limit; j++) {
-			hj = j * Math.PI / limit;
+			hj = j * animate * Math.PI / limit;
 			sj = Math.sin(hj);
 			cj = Math.cos(hj);
 			for (let i = 0; i <= limit; i++) {
-				hi = i * 2 * Math.PI / limit;
+				hi = i * Math.PI / limit;
 				si = Math.sin(hi);
 				ci = Math.cos(hi);
 
@@ -74,7 +74,7 @@ function Pacman(gl, position = [0, 0, 0]) {
 
 
 		// Indices
-		let indices = []
+		let indices = [];
 		let iBuffer = gl.createBuffer();
 		gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, iBuffer);
 		for (j = 0; j < limit; j++) {
@@ -104,9 +104,17 @@ function Pacman(gl, position = [0, 0, 0]) {
 
 		for (let i = 0; i <= limit; i++) {
 			for (let j = 0; j <= limit; j++) {
-				colors.push(0.99);
-				colors.push(0.99);
-				colors.push(0.09);
+
+				if ((i >= 3 && i <= 4 && j >= 3 && j <= 5) || (i >= 3 && i <= 4 && j >= 27 && j <= 29)) {
+					colors.push(0);
+					colors.push(0);
+					colors.push(0);
+				} else {
+					colors.push(0.99);
+					colors.push(0.99);
+					colors.push(0);
+				}
+
 			}
 		}
 		gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(colors), gl.STATIC_DRAW);
@@ -184,6 +192,7 @@ function Pacman(gl, position = [0, 0, 0]) {
 	}
 
 	// Object Variables
+	this.animate = animate;
 	this.lcPosition = position;
 	this.scale = [0.9, 0.9, 0.9];
 
@@ -245,7 +254,9 @@ function Pacman(gl, position = [0, 0, 0]) {
 	this.start = function () {
 		mat4.scale(this.mMatrix, this.mMatrix, this.scale);
 		mat4.translate(this.mMatrix, this.mMatrix, this.lcPosition);
-		mat4.translate(this.lcMatrix, this.lcMatrix, this.lcPosition);
+		mat4.rotateX(this.mMatrix, this.mMatrix, -0.9);
+
+		mat4.multiply(this.lcMatrix, this.lcMatrix, this.mMatrix);
 	};
 
 	this.update = function (x, y, z, position = [0, 0, 0], scale = [1, 1, 1]) {

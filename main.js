@@ -5,6 +5,7 @@ var lightPosition = [10.0, -50.0, 20.0];
 var lightSelected = false;
 var specularEnabled = 0.0;
 var phong = 1.0;
+var animatePacman = 2;
 // Init function called onload body event
 var Init = function () {
 	canvas = document.getElementById('webgl-canvas');
@@ -27,7 +28,7 @@ var Init = function () {
 	gl.clearColor(0.5, 0.5, 0.5, 1.0);
 	gl.enable(gl.DEPTH_TEST);
 
-	mat4.lookAt(vMatrix, vec3.fromValues(0.5, 0, -35), vec3.fromValues(-10, -45, 0), vec3.fromValues(0, 1, 0.2));
+	mat4.lookAt(vMatrix, vec3.fromValues(0.5, 0, -20), vec3.fromValues(-5, -15, 0), vec3.fromValues(0, 10, 0));
 	mat4.invert(vMatrix, vMatrix);
 	mat4.perspective(pMatrix, glMatrix.toRadian(45), canvas.width / canvas.height, 0.4, 2000.0);
 
@@ -145,7 +146,7 @@ var Init = function () {
 
 	// Create pacman
 	try {
-		pacman = new Pacman(gl, [0, 1, 0]);
+		pacman = new Pacman(gl, [0, 1, 0], animatePacman);
 	} catch (E) {
 		console.log(E);
 	}
@@ -175,25 +176,109 @@ var Init = function () {
 	// Start rendering
 	requestAnimationFrame(render);
 
+var factor = 1;
+var rotate = 0;
+	// setInterval(() => {
+	// 	animatePacman = animatePacman === 1.55 ? 1.55 : 1.55;
+	// 	pacman = new Pacman(gl, [0, 1, 0], animatePacman);
+	// 	pacman.start();
+	// 	rotate += 0.1*factor
+	// 	//pacman.update(rotate, 0, 0, [0, 0, 0]);
+	// },20)
+
+	setInterval(() => {
+		factor *= -1;
+	},300)
+
+
+	var up = true;
+	var value = 1.55;
+	var increment = 0.01;
+	var ceiling = 1.80;
+
+	function PerformCalc() {
+		pacman = new Pacman(gl, [0, 1, 0], animatePacman);
+		pacman.start();
+		if (up === true && value <= ceiling) {
+			value += increment
+			pacman.update(increment, 0, 0, [0, 0, 0]);
+
+			if (value == ceiling) {
+				up = false;
+			}
+		} else {
+			up = false
+			value -= increment;
+			pacman.update(-increment, 0, 0, [0, 0, 0]);
+
+			if (value === 1.55) {
+				up = true;
+			}
+		}
+		animatePacman = value;
+
+	}
+	// setInterval(PerformCalc, 10);
+
+
 
 	// Handle user input events
 	document.addEventListener("keydown", function (event) {
 		// Handle event.key inputs
 		switch (event.key) {
+			case "m" : {
+				console.log("animatePacman: " + animatePacman);
+				animatePacman = animatePacman === 1.6 ? 1.65 : 1.6;
+				pacman = new Pacman(gl, [0, 1, 0], animatePacman);
+				pacman.start();
+				pacman.update(animatePacman === 1.6 ? -0.3 : 0.3, 0, 0, [0, 0, 0]);
+
+				break;
+			}
 			case "ArrowDown" : {
+				pacman.global = true;
+				mat4.translate(vMatrix, vMatrix, [0, 0, 0.2]);
 				pacman.update(0, 0, 0, [0, 0, -0.2]);
 				break;
 			}
 			case "ArrowUp" : {
+				pacman.global = true;
+				mat4.translate(vMatrix, vMatrix, [0, 0, -0.2]);
 				pacman.update(0, 0, 0, [0, 0, 0.2]);
 				break;
 			}
 			case "ArrowLeft" : {
+				mat4.translate(vMatrix, vMatrix, [-0.2, 0, 0]);
 				pacman.update(0, 0, 0, [0.2, 0, 0]);
 				break;
 			}
 			case "ArrowRight" : {
+				mat4.translate(vMatrix, vMatrix, [0.2, 0, 0]);
 				pacman.update(0, 0, 0, [-0.2, 0, 0]);
+				break;
+			}
+			case "w" : {
+				pacman.update(0.03, 0, 0, [0, 0, 0]);
+				break;
+			}
+			case "s" : {
+				pacman.update(-0.03, 0, 0, [0, 0, 0]);
+				break;
+			}
+			case "e" : {
+				pacman.update(0, 0.03, 0, [0, 0, 0]);
+				break;
+			}
+			case "q" : {
+				pacman.update(0, -0.03, 0, [0, 0, 0]);
+				break;
+			}
+			case "a" : {
+				pacman.update(0, 0, -0.03, [0, 0, 0]);
+				break;
+			}
+			case "d" : {
+				pacman.update(0, 0, 0.03, [0, 0, 0]);
 				break;
 			}
 		}
