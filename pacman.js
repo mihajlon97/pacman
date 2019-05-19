@@ -1,6 +1,6 @@
 // Pacman object
 // Expected parameter, gl instance and object position
-function Pacman(gl, position = [0, 0, 0], animate) {
+function Pacman(gl, position = [0, 0, 0]) {
 
 	// Shader program
 	if (Pacman.shaderProgram === undefined) {
@@ -31,170 +31,122 @@ function Pacman(gl, position = [0, 0, 0], animate) {
 		gl.enableVertexAttribArray(Pacman.locations.attribute.aNormal);
 	}
 
-	// Buffers
-	if (Pacman.buffers === undefined || animate !== this.animate) {
-		// Create a buffer with the vertex positions
-		// 3 coordinates per vertex, 3 vertices per triangle
-		// 2 triangles make up the ground plane, 4 triangles make up the sides
-		const pBuffer = gl.createBuffer();
-		gl.bindBuffer(gl.ARRAY_BUFFER, pBuffer);
+	this.initialize = function () {
+		// Buffers
+		if (Pacman.buffers === undefined || animatePacman !== this.animate) {
+			// Create a buffer with the vertex positions
+			// 3 coordinates per vertex, 3 vertices per triangle
+			// 2 triangles make up the ground plane, 4 triangles make up the sides
+			const pBuffer = gl.createBuffer();
+			gl.bindBuffer(gl.ARRAY_BUFFER, pBuffer);
 
 
-		// Position vertices
-		let limit = 33;
-		let i, hi, si, ci;
-		let j, hj, sj, cj;
-		let p1, p2;
+			// Position vertices
+			let limit = 33;
+			let i, hi, si, ci;
+			let j, hj, sj, cj;
+			let p1, p2;
 
-		let vertices = [];
-		let normals = [];
-		for (let j = 0; j <= limit; j++) {
-			hj = j * animate * Math.PI / limit;
-			sj = Math.sin(hj);
-			cj = Math.cos(hj);
-			for (let i = 0; i <= limit; i++) {
-				hi = i * Math.PI / limit;
-				si = Math.sin(hi);
-				ci = Math.cos(hi);
-
-				// 0.77 to minimize the sphere
-				vertices.push(ci * sj * 0.77);  // X
-				vertices.push(cj * 0.77);       // Y
-				vertices.push(si * sj * 0.77);  // Z
-
-				normals.push(ci*sj);
-				normals.push(cj);
-				normals.push(si*sj);
-			}
-		}
-
-		gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(vertices), gl.STATIC_DRAW);
-		pBuffer.itemSize = 3;
-		pBuffer.numItems = vertices.length;
-
-
-		// Indices
-		let indices = [];
-		let iBuffer = gl.createBuffer();
-		gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, iBuffer);
-		for (j = 0; j < limit; j++) {
-			for (i = 0; i < limit; i++) {
-				p1 = j * (limit + 1) + i;
-				p2 = p1 + (limit + 1);
-
-				indices.push(p1);
-				indices.push(p2);
-				indices.push(p1 + 1);
-
-				indices.push(p1 + 1);
-				indices.push(p2);
-				indices.push(p2 + 1);
-			}
-		}
-
-		gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, new Uint16Array(indices), gl.STATIC_DRAW);
-		iBuffer.itemSize = 3;
-		iBuffer.numItems = indices.length;
-
-
-		// Color
-		let cBuffer = gl.createBuffer();
-		gl.bindBuffer(gl.ARRAY_BUFFER, cBuffer);
-		let colors = [];
-
-		for (let i = 0; i <= limit; i++) {
+			let vertices = [];
+			let normals = [];
 			for (let j = 0; j <= limit; j++) {
+				hj = j * animatePacman * Math.PI / limit;
+				sj = Math.sin(hj);
+				cj = Math.cos(hj);
+				for (let i = 0; i <= limit; i++) {
+					hi = i * Math.PI / limit;
+					si = Math.sin(hi);
+					ci = Math.cos(hi);
 
-				if ((i >= 3 && i <= 4 && j >= 3 && j <= 5) || (i >= 3 && i <= 4 && j >= 27 && j <= 29)) {
-					colors.push(0);
-					colors.push(0);
-					colors.push(0);
-				} else {
-					colors.push(0.99);
-					colors.push(0.99);
-					colors.push(0);
+					// 0.77 to minimize the sphere
+					vertices.push(ci * sj * 0.77);  // X
+					vertices.push(cj * 0.77);       // Y
+					vertices.push(si * sj * 0.77);  // Z
+
+					normals.push(ci*sj);
+					normals.push(cj);
+					normals.push(si*sj);
 				}
-
 			}
+
+			gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(vertices), gl.STATIC_DRAW);
+			pBuffer.itemSize = 3;
+			pBuffer.numItems = vertices.length;
+
+
+			// Indices
+			let indices = [];
+			let iBuffer = gl.createBuffer();
+			gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, iBuffer);
+			for (j = 0; j < limit; j++) {
+				for (i = 0; i < limit; i++) {
+					p1 = j * (limit + 1) + i;
+					p2 = p1 + (limit + 1);
+
+					indices.push(p1);
+					indices.push(p2);
+					indices.push(p1 + 1);
+
+					indices.push(p1 + 1);
+					indices.push(p2);
+					indices.push(p2 + 1);
+				}
+			}
+
+			gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, new Uint16Array(indices), gl.STATIC_DRAW);
+			iBuffer.itemSize = 3;
+			iBuffer.numItems = indices.length;
+
+
+			// Color
+			let cBuffer = gl.createBuffer();
+			gl.bindBuffer(gl.ARRAY_BUFFER, cBuffer);
+			let colors = [];
+
+			for (let i = 0; i <= limit; i++) {
+				for (let j = 0; j <= limit; j++) {
+
+					if ((i >= 3 && i <= 4 && j >= 3 && j <= 5) || (i >= 3 && i <= 4 && j >= 27 && j <= 29)) {
+						colors.push(0);
+						colors.push(0);
+						colors.push(0);
+					} else {
+						colors.push(0.99);
+						colors.push(0.99);
+						colors.push(0);
+					}
+
+				}
+			}
+			gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(colors), gl.STATIC_DRAW);
+			cBuffer.itemSize = 3;
+			cBuffer.numitems = colors.length;
+
+
+			//Create a buffer with the normals
+			const nBuffer = gl.createBuffer();
+			gl.bindBuffer(gl.ARRAY_BUFFER, nBuffer);
+			gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(normals), gl.STATIC_DRAW);
+
+
+			Pacman.buffers = {
+				pBuffer: pBuffer,
+				cBuffer: cBuffer,
+				nBuffer: nBuffer,
+				iBuffer: iBuffer,
+				pComponents: 3,
+				cComponents: 3,
+				nComponents: 3,
+			};
 		}
-		gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(colors), gl.STATIC_DRAW);
-		cBuffer.itemSize = 3;
-		cBuffer.numitems = colors.length;
+	};
 
-
-		// Lines
-		const lBuffer = gl.createBuffer();
-		gl.bindBuffer(gl.ARRAY_BUFFER, lBuffer);
-
-		let lineVertices = [
-			0.0, 1.1, 0.0,
-			0.0, -1.1, 0.0,
-
-			1.1, 0.0, 0.0,
-			-1.1, 0.0, 0.0,
-
-			0.0, 0.0, 1.1,
-			0.0, 0.0, -1.1
-		];
-		gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(lineVertices), gl.STATIC_DRAW);
-		lBuffer.itemSize = 3;
-		lBuffer.numItems = 6;
-
-
-		const liBuffer = gl.createBuffer();
-		gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, liBuffer);
-
-		let lineIndices = [
-			0, 1,
-			2, 3,
-			4, 5
-		];
-		gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, new Uint16Array(lineIndices), gl.STATIC_DRAW);
-		liBuffer.itemSize = 1;
-		liBuffer.numItems = 6;
-
-		const lcBuffer = gl.createBuffer();
-		gl.bindBuffer(gl.ARRAY_BUFFER, lcBuffer);
-
-		let lineColors = [
-			0.0, 1.0, 0.0, 1.0,
-			0.0, 1.0, 0.0, 1.0,
-
-			1.0, 0.0, 0.0, 1.0,
-			1.0, 0.0, 0.0, 1.0,
-
-			0.0, 0.0, 1.0, 1.0,
-			0.0, 0.0, 1.0, 1.0
-		];
-		gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(lineColors), gl.STATIC_DRAW);
-		lcBuffer.itemSize = 4;
-		lcBuffer.numItems = 6;
-
-
-		//Create a buffer with the normals
-		const nBuffer = gl.createBuffer();
-		gl.bindBuffer(gl.ARRAY_BUFFER, nBuffer);
-		gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(normals), gl.STATIC_DRAW);
-
-
-		Pacman.buffers = {
-			pBuffer: pBuffer,
-			cBuffer: cBuffer,
-			nBuffer: nBuffer,
-			lBuffer: lBuffer,
-			iBuffer: iBuffer,
-			liBuffer: liBuffer,
-			lcBuffer: lcBuffer,
-			pComponents: 3,
-			cComponents: 3,
-			nComponents: 3,
-		};
-	}
+	this.initialize();
 
 	// Object Variables
-	this.animate = animate;
+	this.animate = animatePacman;
 	this.lcPosition = position;
-	this.scale = [0.9, 0.9, 0.9];
+	this.scale = [0.75, 0.75, 0.75];
 
 	this.mMatrix = mat4.create();
 	this.lcMatrix = mat4.create();
@@ -230,27 +182,6 @@ function Pacman(gl, position = [0, 0, 0], animate) {
 	};
 
 
-	// Object drawLines function which are displayed as local coordinates in colors R for x, G for y and B for z axis
-	this.drawLines = function (gl, pMatrix) {
-		gl.useProgram(Pacman.shaderProgram);
-
-		gl.bindBuffer(gl.ARRAY_BUFFER, Pacman.buffers.lBuffer);
-		gl.vertexAttribPointer(Pacman.locations.attribute.vertPosition, Pacman.buffers.lBuffer.itemSize, gl.FLOAT, false, 0, 0);
-
-		gl.bindBuffer(gl.ARRAY_BUFFER, Pacman.buffers.lcBuffer);
-		gl.vertexAttribPointer(Pacman.locations.attribute.vertColor, Pacman.buffers.lcBuffer.itemSize, gl.FLOAT, false, 0, 0);
-
-		gl.bindBuffer(gl.ARRAY_BUFFER, Pacman.buffers.nBuffer);
-		gl.vertexAttribPointer(Pacman.locations.attribute.aNormal, Pacman.buffers.nComponents, gl.FLOAT, false, 0, 0);
-
-
-		gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, Pacman.buffers.liBuffer);
-		gl.uniformMatrix4fv(Pacman.locations.uniform.pMatrix, false, pMatrix);
-		gl.uniformMatrix4fv(Pacman.locations.uniform.mMatrix, false, this.lcMatrix);
-
-		gl.drawElements(gl.LINES, Pacman.buffers.liBuffer.numItems, gl.UNSIGNED_SHORT, 0);
-	};
-
 	this.start = function () {
 		mat4.scale(this.mMatrix, this.mMatrix, this.scale);
 		mat4.translate(this.mMatrix, this.mMatrix, this.lcPosition);
@@ -267,6 +198,7 @@ function Pacman(gl, position = [0, 0, 0], animate) {
 			// Transform the object
 			mat4.scale(this.mMatrix, this.mMatrix, scale);
 			mat4.rotateX(this.mMatrix, this.mMatrix, x);
+
 			mat4.rotateY(this.mMatrix, this.mMatrix, y);
 			mat4.rotateZ(this.mMatrix, this.mMatrix, z);
 			mat4.translate(this.mMatrix, this.mMatrix, position);

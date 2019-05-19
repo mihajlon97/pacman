@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="449f3611-4461-4088-ac2e-8d66502d6237" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pacman.js" beforeDir="false" afterPath="$PROJECT_DIR$/pacman.js" afterDir="false" />
     </list>
@@ -89,15 +88,15 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="html" value="60" />
-          <entry key="js" value="3487" />
-          <entry key="txt" value="119" />
+          <entry key="js" value="3775" />
+          <entry key="txt" value="195" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="HTML" value="60" />
-          <entry key="JavaScript" value="3487" />
-          <entry key="PLAIN_TEXT" value="119" />
+          <entry key="JavaScript" value="3775" />
+          <entry key="PLAIN_TEXT" value="195" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -135,11 +134,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="30" column="76" selection-start-line="30" selection-start-column="76" selection-end-line="30" selection-end-column="76" />
+            <state relative-caret-position="255">
+              <caret line="254" column="14" lean-forward="true" selection-start-line="254" selection-start-column="14" selection-end-line="254" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -168,11 +167,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pacman.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="313">
-              <caret line="271" column="25" selection-start-line="271" selection-end-line="272" />
+            <state relative-caret-position="161">
+              <caret line="148" column="32" selection-start-line="148" selection-start-column="32" selection-end-line="148" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -224,11 +223,11 @@
       <find>Labyrinth</find>
       <find>objects</find>
       <find>+ j</find>
-      <find>scale</find>
       <find>lightPosition</find>
       <find>animatePacman</find>
-      <find>vMatrix</find>
       <find>animate</find>
+      <find>vMatrix</find>
+      <find>scale</find>
     </findStrings>
     <replaceStrings>
       <replace>mMatrix</replace>
@@ -269,8 +268,8 @@
         <option value="$PROJECT_DIR$/ground.js" />
         <option value="$PROJECT_DIR$/labyrinth.js" />
         <option value="$PROJECT_DIR$/index.html" />
-        <option value="$PROJECT_DIR$/pacman.js" />
         <option value="$PROJECT_DIR$/main.js" />
+        <option value="$PROJECT_DIR$/pacman.js" />
       </list>
     </option>
   </component>
@@ -372,7 +371,7 @@
       <workItem from="1557227971546" duration="2145000" />
       <workItem from="1557247592391" duration="655000" />
       <workItem from="1557302377327" duration="65000" />
-      <workItem from="1558186486735" duration="32842000" />
+      <workItem from="1558186486735" duration="36789000" />
     </task>
     <task id="LOCAL-00001" summary="- CLEANING">
       <created>1540761678287</created>
@@ -493,11 +492,18 @@
       <option name="project" value="LOCAL" />
       <updated>1558216737163</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary=" - eyes, camera movement, shear view, basic mouth animate function-testing">
+      <created>1558229081470</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1558229081470</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="195357000" />
+    <option name="totallyTimeSpent" value="199304000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
@@ -551,7 +557,8 @@
     <MESSAGE value=" - pacman" />
     <MESSAGE value=" - ground, border labyrinth, pacman moving" />
     <MESSAGE value=" - labyrinth hardcoded" />
-    <option name="LAST_COMMIT_MESSAGE" value=" - labyrinth hardcoded" />
+    <MESSAGE value=" - eyes, camera movement, shear view, basic mouth animate function-testing" />
+    <option name="LAST_COMMIT_MESSAGE" value=" - eyes, camera movement, shear view, basic mouth animate function-testing" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/initShaders.js">
@@ -619,17 +626,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pacman.js">
+    <entry file="file://$PROJECT_DIR$/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="313">
-          <caret line="271" column="25" selection-start-line="271" selection-end-line="272" />
+        <state relative-caret-position="255">
+          <caret line="254" column="14" lean-forward="true" selection-start-line="254" selection-start-column="14" selection-end-line="254" selection-end-column="14" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.js">
+    <entry file="file://$PROJECT_DIR$/pacman.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="30" column="76" selection-start-line="30" selection-start-column="76" selection-end-line="30" selection-end-column="76" />
+        <state relative-caret-position="161">
+          <caret line="148" column="32" selection-start-line="148" selection-start-column="32" selection-end-line="148" selection-end-column="32" />
         </state>
       </provider>
     </entry>
