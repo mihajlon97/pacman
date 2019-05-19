@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="449f3611-4461-4088-ac2e-8d66502d6237" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pacman.js" beforeDir="false" afterPath="$PROJECT_DIR$/pacman.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -87,16 +87,16 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="html" value="60" />
-          <entry key="js" value="4454" />
-          <entry key="txt" value="237" />
+          <entry key="html" value="112" />
+          <entry key="js" value="5480" />
+          <entry key="txt" value="299" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="60" />
-          <entry key="JavaScript" value="4454" />
-          <entry key="PLAIN_TEXT" value="237" />
+          <entry key="HTML" value="112" />
+          <entry key="JavaScript" value="5480" />
+          <entry key="PLAIN_TEXT" value="299" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -113,11 +113,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="68" column="61" selection-start-line="68" selection-start-column="61" selection-end-line="68" selection-end-column="61" />
+            <state relative-caret-position="238">
+              <caret line="107" column="37" selection-start-line="107" selection-start-column="37" selection-end-line="107" selection-end-column="37" />
+              <folding>
+                <element signature="n#style#0;n#h1#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -125,11 +128,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/labyrinth.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="367">
-              <caret line="358" column="61" selection-start-line="358" selection-start-column="61" selection-end-line="358" selection-end-column="61" />
-              <caret line="359" column="61" selection-start-line="359" selection-start-column="61" selection-end-line="359" selection-end-column="61" />
-              <caret line="360" column="61" selection-start-line="360" selection-start-column="61" selection-end-line="360" selection-end-column="61" />
-              <caret line="361" column="61" selection-start-line="361" selection-start-column="61" selection-end-line="361" selection-end-column="61" />
+            <state relative-caret-position="194">
+              <caret line="379" column="52" lean-forward="true" selection-start-line="379" selection-start-column="52" selection-end-line="379" selection-end-column="52" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -140,8 +140,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="98" column="2" lean-forward="true" selection-start-line="98" selection-start-column="2" selection-end-line="98" selection-end-column="2" />
+            <state relative-caret-position="161">
+              <caret line="40" column="35" selection-start-line="40" selection-start-column="35" selection-end-line="40" selection-end-column="35" />
             </state>
           </provider>
         </entry>
@@ -149,8 +149,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ground.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-517">
-              <caret line="210" column="17" selection-start-line="210" selection-start-column="17" selection-end-line="210" selection-end-column="17" />
+            <state relative-caret-position="95">
+              <caret line="210" column="25" selection-start-line="210" selection-start-column="25" selection-end-line="210" selection-end-column="25" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -170,11 +170,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pacman.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="211">
-              <caret line="188" column="55" selection-start-line="188" selection-start-column="55" selection-end-line="188" selection-end-column="55" />
+            <state relative-caret-position="442">
+              <caret line="225" column="29" selection-start-line="225" selection-start-column="29" selection-end-line="225" selection-end-column="29" />
             </state>
           </provider>
         </entry>
@@ -201,14 +201,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>phong</find>
-      <find>camera</find>
-      <find>fragColor</find>
-      <find>Sphere</find>
-      <find>specularEnabled</find>
-      <find>numItems</find>
-      <find>10</find>
-      <find>Pyramid</find>
       <find>lBuffer</find>
       <find>Cube</find>
       <find>colors</find>
@@ -225,12 +217,20 @@
       <find>lightPosition</find>
       <find>animatePacman</find>
       <find>animate</find>
-      <find>rotateToLeft</find>
-      <find>scale</find>
       <find>position</find>
       <find>vMatrix</find>
-      <find>lcPosition</find>
+      <find>rotateToLeft</find>
       <find>update</find>
+      <find>scale</find>
+      <find>1,</find>
+      <find>8</find>
+      <find>6</find>
+      <find>14</find>
+      <find>lcPosition</find>
+      <find>tiny</find>
+      <find>Ground</find>
+      <find>0.5</find>
+      <find>0.7</find>
     </findStrings>
     <replaceStrings>
       <replace>mMatrix</replace>
@@ -253,8 +253,13 @@
       <replace>camera</replace>
       <replace>Labyrinth</replace>
       <replace>flagStarted</replace>
-      <replace>Ground</replace>
       <replace>Cube</replace>
+      <replace>Ground</replace>
+      <replace>0,</replace>
+      <replace>0.5,</replace>
+      <replace>4</replace>
+      <replace>7</replace>
+      <replace>0.6</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -269,10 +274,10 @@
         <option value="$PROJECT_DIR$/readme.txt" />
         <option value="$PROJECT_DIR$/cube.js" />
         <option value="$PROJECT_DIR$/ground.js" />
-        <option value="$PROJECT_DIR$/index.html" />
-        <option value="$PROJECT_DIR$/labyrinth.js" />
         <option value="$PROJECT_DIR$/main.js" />
+        <option value="$PROJECT_DIR$/labyrinth.js" />
         <option value="$PROJECT_DIR$/pacman.js" />
+        <option value="$PROJECT_DIR$/index.html" />
       </list>
     </option>
   </component>
@@ -374,7 +379,7 @@
       <workItem from="1557227971546" duration="2145000" />
       <workItem from="1557247592391" duration="655000" />
       <workItem from="1557302377327" duration="65000" />
-      <workItem from="1558186486735" duration="44819000" />
+      <workItem from="1558186486735" duration="52244000" />
     </task>
     <task id="LOCAL-00001" summary="- CLEANING">
       <created>1540761678287</created>
@@ -516,11 +521,25 @@
       <option name="project" value="LOCAL" />
       <updated>1558272570595</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary=" - rotating pacman">
+      <created>1558278994997</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1558278994997</updated>
+    </task>
+    <task id="LOCAL-00022" summary=" - new labyrinth, basic intersection">
+      <created>1558292526162</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1558292526163</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="207334000" />
+    <option name="totallyTimeSpent" value="214759000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
@@ -577,7 +596,9 @@
     <MESSAGE value=" - eyes, camera movement, shear view, basic mouth animate function-testing" />
     <MESSAGE value=" - animated pacman" />
     <MESSAGE value=" - labyrinth adjusted" />
-    <option name="LAST_COMMIT_MESSAGE" value=" - labyrinth adjusted" />
+    <MESSAGE value=" - rotating pacman" />
+    <MESSAGE value=" - new labyrinth, basic intersection" />
+    <option name="LAST_COMMIT_MESSAGE" value=" - new labyrinth, basic intersection" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/initShaders.js">
@@ -620,28 +641,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ground.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-517">
-          <caret line="210" column="17" selection-start-line="210" selection-start-column="17" selection-end-line="210" selection-end-column="17" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="68" column="61" selection-start-line="68" selection-start-column="61" selection-end-line="68" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/labyrinth.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="367">
-          <caret line="358" column="61" selection-start-line="358" selection-start-column="61" selection-end-line="358" selection-end-column="61" />
-          <caret line="359" column="61" selection-start-line="359" selection-start-column="61" selection-end-line="359" selection-end-column="61" />
-          <caret line="360" column="61" selection-start-line="360" selection-start-column="61" selection-end-line="360" selection-end-column="61" />
-          <caret line="361" column="61" selection-start-line="361" selection-start-column="61" selection-end-line="361" selection-end-column="61" />
+        <state relative-caret-position="95">
+          <caret line="210" column="25" selection-start-line="210" selection-start-column="25" selection-end-line="210" selection-end-column="25" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
@@ -650,15 +651,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="98" column="2" lean-forward="true" selection-start-line="98" selection-start-column="2" selection-end-line="98" selection-end-column="2" />
+        <state relative-caret-position="161">
+          <caret line="40" column="35" selection-start-line="40" selection-start-column="35" selection-end-line="40" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/labyrinth.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="379" column="52" lean-forward="true" selection-start-line="379" selection-start-column="52" selection-end-line="379" selection-end-column="52" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pacman.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="188" column="55" selection-start-line="188" selection-start-column="55" selection-end-line="188" selection-end-column="55" />
+        <state relative-caret-position="442">
+          <caret line="225" column="29" selection-start-line="225" selection-start-column="29" selection-end-line="225" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="107" column="37" selection-start-line="107" selection-start-column="37" selection-end-line="107" selection-end-column="37" />
+          <folding>
+            <element signature="n#style#0;n#h1#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

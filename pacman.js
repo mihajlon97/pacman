@@ -203,43 +203,13 @@ function Pacman(gl, position = [0, 0, 0]) {
 		}
 	};
 
-	this.rotateToRight = function () {
-		if (this.lookDirection !== "right") {
-			mat4.identity(this.mMatrix);
-			mat4.translate(this.mMatrix, this.mMatrix, this.lcPosition);
-			mat4.rotateX(this.mMatrix, this.mMatrix, -1.5);
-			mat4.rotateZ(this.mMatrix, this.mMatrix, 1.5);
-			mat4.scale(this.mMatrix, this.mMatrix, this.scale);
-			mat4.identity(this.lcMatrix);
-			mat4.multiply(this.lcMatrix, this.lcMatrix, this.mMatrix);
-			this.lookDirection = "right"
-		}
-	};
+	function getDistance(x1, z1, x2, z2) {
+		let xDistance = x2 - x1;
+		let zDistance = z2 - z1;
 
-	this.rotateToUp = function () {
-		if (this.lookDirection !== "up") {
-			mat4.identity(this.mMatrix);
-			mat4.translate(this.mMatrix, this.mMatrix, this.lcPosition);
-			mat4.rotateX(this.mMatrix, this.mMatrix, -1.5);
-			mat4.rotateZ(this.mMatrix, this.mMatrix, -2.5);
-			mat4.scale(this.mMatrix, this.mMatrix, this.scale);
-			mat4.identity(this.lcMatrix);
-			mat4.multiply(this.lcMatrix, this.lcMatrix, this.mMatrix);
-			this.lookDirection = "up"
-		}
-	};
+		return Math.sqrt(Math.pow(xDistance, 2) + Math.pow(zDistance, 2));
+	}
 
-	this.rotateToDown = function () {
-		if (this.lookDirection !== "down") {
-			mat4.identity(this.mMatrix);
-			mat4.translate(this.mMatrix, this.mMatrix, this.lcPosition);
-			mat4.rotateX(this.mMatrix, this.mMatrix, -1.5);
-			mat4.scale(this.mMatrix, this.mMatrix, this.scale);
-			mat4.identity(this.lcMatrix);
-			mat4.multiply(this.lcMatrix, this.lcMatrix, this.mMatrix);
-			this.lookDirection = "down"
-		}
-	};
 
 	this.update = function (x, y, z, position = [0, 0, 0], scale = [1, 1, 1]) {
 
@@ -253,13 +223,10 @@ function Pacman(gl, position = [0, 0, 0]) {
 			console.log("Labyrinth size: " + labyrinth.length);
 			console.log("Pacman position: " + this.lcPosition);
 			labyrinth.forEach((e, i) => {
-				if (e.lcPosition[0] === 0) {
-					console.log(e.lcPosition);
+				if (canMove && i > 0 && getDistance(this.lcPosition[0], this.lcPosition[2], e.lcPosition[0], e.lcPosition[2]) < 1){
+					console.log("CANNOT MOVE!", e.lcPosition);
+					canMove = false;
 				}
-					if (canMove && arraysEqual(e.lcPosition, this.lcPosition)) {
-						console.log("CANNOT MOVE!", e.lcPosition);
-						canMove = false;
-					}
 			});
 		}
 
