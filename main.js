@@ -1,7 +1,7 @@
 // Global Variables, first object empty, because selection starts with 1
 var pacman = null, labyrinth = [], canvas, gl, program, flag = false;
 var wMatrix = mat4.create();
-var lightPosition = [10.0, -20.0, 30.0];
+var lightPosition = [5.0, -20.0, 40.0];
 var lightSelected = false;
 var specularEnabled = 0.0;
 var phong = 1.0;
@@ -38,7 +38,7 @@ var Init = function () {
 
 	// Create pacman
 	try {
-		pacman = new Pacman(gl, [0, 1, 0]);
+		pacman = new Pacman(gl, [0, 0.6, 0]);
 	} catch (E) {
 		console.log(E);
 	}
@@ -114,29 +114,29 @@ var Init = function () {
 				break;
 			}
 			case "ArrowDown" : {
-				mat4.translate(vMatrix, vMatrix, [0, 0, 0.2]);
 				pacman.global = true;
-				pacman.update(0, 0, 0, [0, 0, -0.2]);
-				pacman.rotateToDown();
+				if (pacman.update(0, 0, 0, [0, 0, -0.5]))
+					mat4.translate(vMatrix, vMatrix, [0, 0, 0.5]);
+				pacman.rotate("down", 0);
 				break;
 			}
 			case "ArrowUp" : {
-				mat4.translate(vMatrix, vMatrix, [0, 0, -0.2]);
 				pacman.global = true;
-				pacman.update(0, 0, 0, [0, 0, 0.2]);
-				pacman.rotateToUp();
+				if (pacman.update(0, 0, 0, [0, 0, 0.5]))
+					mat4.translate(vMatrix, vMatrix, [0, 0, -0.5]);
+				pacman.rotate("up", -2.5);
 				break;
 			}
 			case "ArrowLeft" : {
-				mat4.translate(vMatrix, vMatrix, [-0.2, 0, 0]);
-				pacman.update(0, 0, 0, [0.2, 0, 0]);
-				pacman.rotateToLeft();
+				if(pacman.update(0, 0, 0, [0.5, 0, 0]))
+					mat4.translate(vMatrix, vMatrix, [-0.5, 0, 0]);
+				pacman.rotate("left", -1.5);
 				break;
 			}
 			case "ArrowRight" : {
-				mat4.translate(vMatrix, vMatrix, [0.2, 0, 0]);
-				pacman.update(0, 0, 0, [-0.2, 0, 0]);
-				pacman.rotateToRight();
+				if(pacman.update(0, 0, 0, [-0.5, 0, 0]))
+					mat4.translate(vMatrix, vMatrix, [0.5, 0, 0]);
+				pacman.rotate("right", 1.5);
 				break;
 			}
 			case "w" : {

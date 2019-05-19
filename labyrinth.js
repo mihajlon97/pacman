@@ -209,7 +209,7 @@ function Labyrinth(gl, position = [0, 0, 0], tiny = false) {
 	// Object Variables
 	this.lcPosition = position;
 	this.scale = [0.5, 0.5, 0.5];
-	this.tiny = [0.3, 0.5, 0.5];
+	this.tiny = [0.1, 0.5, 0.5];
 	this.mMatrix = mat4.create();
 	this.lcMatrix = mat4.create();
 	this.mMatrixInv = mat3.create();
@@ -245,9 +245,9 @@ function Labyrinth(gl, position = [0, 0, 0], tiny = false) {
 	};
 
 	this.start = function () {
-		mat4.scale(this.mMatrix, this.mMatrix, !tiny ? this.scale : this.tiny);
 		mat4.translate(this.mMatrix, this.mMatrix, this.lcPosition);
 		mat4.translate(this.lcMatrix, this.lcMatrix, this.lcPosition);
+		mat4.scale(this.mMatrix, this.mMatrix, !tiny ? this.scale : this.tiny);
 	};
 
 	this.update = function (x, y, z, position = [0, 0, 0], scale = [1, 1, 1]) {
@@ -296,103 +296,91 @@ function createLabyrinth () {
 		labyrinth.push(new Ground(gl, [0, 0, 0]));
 
 		// Down border
-		for (var i = 0; i <= 18; i+=2) {
+		for (var i = 0; i <= 10; i++) {
 			// Down border
-			labyrinth.push(new Labyrinth(gl, [i, 1, -18.5]));
-			labyrinth.push(new Labyrinth(gl, [-i, 1, -18.5]));
+			labyrinth.push(new Labyrinth(gl, [i, 0.6, -10]));
+			labyrinth.push(new Labyrinth(gl, [-i, 0.6, -10]));
 
 			// Up border
-			labyrinth.push(new Labyrinth(gl, [i, 1, 18.5]));
-			labyrinth.push(new Labyrinth(gl, [-i, 1, 18.5]));
+			labyrinth.push(new Labyrinth(gl, [i, 0.6, 10]));
+			labyrinth.push(new Labyrinth(gl, [-i, 0.6, 10]));
 
 			// Left border
-			labyrinth.push(new Labyrinth(gl, [18.5, 1, i]));
-			labyrinth.push(new Labyrinth(gl, [18.5, 1, -i]));
+			labyrinth.push(new Labyrinth(gl, [10, 0.6, i]));
+			labyrinth.push(new Labyrinth(gl, [10, 0.6, -i]));
 
 			// Right border
-			labyrinth.push(new Labyrinth(gl, [-18.5, 1, i]));
-			labyrinth.push(new Labyrinth(gl, [-18.5, 1, -i]));
+			labyrinth.push(new Labyrinth(gl, [-10, 0.6, i]));
+			labyrinth.push(new Labyrinth(gl, [-10, 0.6, -i]));
 
 			// Inside walls
-			if (i % 10 > 2) {
-				labyrinth.push(new Labyrinth(gl, [0, 1, i]));
-				labyrinth.push(new Labyrinth(gl, [0, 1, -i]));
-				labyrinth.push(new Labyrinth(gl, [10, 1, -i]));
-				labyrinth.push(new Labyrinth(gl, [-10, 1, -i]));
-
-			} else if(i > 2 && i+2 <= 20) {
-				labyrinth.push(new Labyrinth(gl, [i+2, 1, 0]));
-				labyrinth.push(new Labyrinth(gl, [i, 1, 0]));
-				labyrinth.push(new Labyrinth(gl, [-i, 1, 0]));
-				labyrinth.push(new Labyrinth(gl, [-i-2, 1, 0]));
-
-				labyrinth.push(new Labyrinth(gl, [6, 1, i-4]));
-				labyrinth.push(new Labyrinth(gl, [6, 1, i-2]));
-				labyrinth.push(new Labyrinth(gl, [8, 1, i-4]));
-				labyrinth.push(new Labyrinth(gl, [8, 1, i-2]));
-				labyrinth.push(new Labyrinth(gl, [8, 1, i]));
-				labyrinth.push(new Labyrinth(gl, [6, 1, i]));
-				labyrinth.push(new Labyrinth(gl, [-6, 1, i]));
-				labyrinth.push(new Labyrinth(gl, [-8, 1, i]));
-				labyrinth.push(new Labyrinth(gl, [-6, 1, i-4]));
-				labyrinth.push(new Labyrinth(gl, [-6, 1, i-2]));
-				labyrinth.push(new Labyrinth(gl, [-8, 1, i-4]));
-				labyrinth.push(new Labyrinth(gl, [-8, 1, i-2]));
-
-				labyrinth.push(new Labyrinth(gl, [14, 1, i-2]));
-				labyrinth.push(new Labyrinth(gl, [14, 1, i-4]));
-				labyrinth.push(new Labyrinth(gl, [14, 1, i-6]));
-				labyrinth.push(new Labyrinth(gl, [14, 1, i-8]));
-				labyrinth.push(new Labyrinth(gl, [14, 1, i]));
-
-				labyrinth.push(new Labyrinth(gl, [24, 1, i-18], true));
-				labyrinth.push(new Labyrinth(gl, [24, 1, i-20], true));
-				labyrinth.push(new Labyrinth(gl, [24, 1, i-22], true));
-				labyrinth.push(new Labyrinth(gl, [24, 1, i-24], true));
-
-				labyrinth.push(new Labyrinth(gl, [-14, 1, i]));
-				labyrinth.push(new Labyrinth(gl, [-14, 1, i-2]));
-				labyrinth.push(new Labyrinth(gl, [-14, 1, i-4]));
-				labyrinth.push(new Labyrinth(gl, [-14, 1, i-6]));
-				labyrinth.push(new Labyrinth(gl, [-14, 1, i-8]));
-
-				labyrinth.push(new Labyrinth(gl, [-24, 1, i-18], true));
-				labyrinth.push(new Labyrinth(gl, [-24, 1, i-20], true));
-				labyrinth.push(new Labyrinth(gl, [-24, 1, i-22], true));
-				labyrinth.push(new Labyrinth(gl, [-24, 1, i-24], true));
+			if (i % 5 > 2) {
+					labyrinth.push(new Labyrinth(gl, [0, 0.6, i]));
+				  labyrinth.push(new Labyrinth(gl, [4, 0.6, -i]));
+			 	  labyrinth.push(new Labyrinth(gl, [-4, 0.6, -i]));
+			} else if(i > 2 && i+2 <= 10) {
+				labyrinth.push(new Labyrinth(gl, [i-1, 0.6, 0]));
+				labyrinth.push(new Labyrinth(gl, [i, 0.6, 0]));
+				labyrinth.push(new Labyrinth(gl, [-i, 0.6, 0]));
+				labyrinth.push(new Labyrinth(gl, [-i+1, 0.6, 0]));
 
 
-				labyrinth.push(new Labyrinth(gl, [-5, 1, -i+1]));
-				labyrinth.push(new Labyrinth(gl, [-5, 1, -i+2]));
-				labyrinth.push(new Labyrinth(gl, [-5, 1, -i+3]));
-				labyrinth.push(new Labyrinth(gl, [-5, 1, -i+4]));
-				labyrinth.push(new Labyrinth(gl, [-5, 1, -i+5]));
-				labyrinth.push(new Labyrinth(gl, [-5, 1, -i+6]));
-				labyrinth.push(new Labyrinth(gl, [-5, 1, -i+7]));
-				labyrinth.push(new Labyrinth(gl, [-5, 1, -i+8]));
-				labyrinth.push(new Labyrinth(gl, [-5, 1, -i+9]));
-				labyrinth.push(new Labyrinth(gl, [-5, 1, -i+10]));
-				labyrinth.push(new Labyrinth(gl, [-5, 1, -i]));
-				labyrinth.push(new Labyrinth(gl, [-5, 1, -i-1]));
-				labyrinth.push(new Labyrinth(gl, [-5, 1, -i-2]));
 
-				labyrinth.push(new Labyrinth(gl, [5, 1, -i+1]));
-				labyrinth.push(new Labyrinth(gl, [5, 1, -i+2]));
-				labyrinth.push(new Labyrinth(gl, [5, 1, -i+3]));
-				labyrinth.push(new Labyrinth(gl, [5, 1, -i+4]));
-				labyrinth.push(new Labyrinth(gl, [5, 1, -i+5]));
-				labyrinth.push(new Labyrinth(gl, [5, 1, -i+6]));
-				labyrinth.push(new Labyrinth(gl, [5, 1, -i+7]));
-				labyrinth.push(new Labyrinth(gl, [5, 1, -i+8]));
-				labyrinth.push(new Labyrinth(gl, [5, 1, -i+9]));
-				labyrinth.push(new Labyrinth(gl, [5, 1, -i+10]));
-				labyrinth.push(new Labyrinth(gl, [5, 1, -i]));
-				labyrinth.push(new Labyrinth(gl, [5, 1, -i-1]));
-				labyrinth.push(new Labyrinth(gl, [5, 1, -i-2]));
+				labyrinth.push(new Labyrinth(gl, [3, 0.6, i-2]));
+				labyrinth.push(new Labyrinth(gl, [3, 0.6, i-1]));
+				labyrinth.push(new Labyrinth(gl, [4, 0.6, i-2]));
+				labyrinth.push(new Labyrinth(gl, [4, 0.6, i-1]));
+				labyrinth.push(new Labyrinth(gl, [4, 0.6, i]));
+				labyrinth.push(new Labyrinth(gl, [3, 0.6, i]));
+				labyrinth.push(new Labyrinth(gl, [-3, 0.6, i]));
+				labyrinth.push(new Labyrinth(gl, [-4, 0.6, i]));
+				labyrinth.push(new Labyrinth(gl, [-3, 0.6, i-2]));
+				labyrinth.push(new Labyrinth(gl, [-3, 0.6, i-1]));
+				labyrinth.push(new Labyrinth(gl, [-4, 0.6, i-2]));
+				labyrinth.push(new Labyrinth(gl, [-4, 0.6, i-1]));
 
+				labyrinth.push(new Labyrinth(gl, [7, 0.6, i-1]));
+				labyrinth.push(new Labyrinth(gl, [7, 0.6, i-2]));
+				labyrinth.push(new Labyrinth(gl, [7, 0.6, i-3]));
+				labyrinth.push(new Labyrinth(gl, [7, 0.6, i-4]));
+				labyrinth.push(new Labyrinth(gl, [7, 0.6, i]));
+
+				labyrinth.push(new Labyrinth(gl, [7, 0.6, i-10]));
+				labyrinth.push(new Labyrinth(gl, [7, 0.6, i-11]));
+				labyrinth.push(new Labyrinth(gl, [7, 0.6, i-12]));
+
+
+				labyrinth.push(new Labyrinth(gl, [-7, 0.6, i]));
+				labyrinth.push(new Labyrinth(gl, [-7, 0.6, i-1]));
+				labyrinth.push(new Labyrinth(gl, [-7, 0.6, i-2]));
+				labyrinth.push(new Labyrinth(gl, [-7, 0.6, i-3]));
+				labyrinth.push(new Labyrinth(gl, [-7, 0.6, i-4]));
+
+
+				labyrinth.push(new Labyrinth(gl, [-7, 0.6, i-10]));
+				labyrinth.push(new Labyrinth(gl, [-7, 0.6, i-11]));
+				labyrinth.push(new Labyrinth(gl, [-7, 0.6, i-12]));
+
+
+				labyrinth.push(new Labyrinth(gl, [-1, 0.6, -i]));
+				labyrinth.push(new Labyrinth(gl, [-1, 0.6, -i+1]));
+				labyrinth.push(new Labyrinth(gl, [-1, 0.6, -i+2]));
+				labyrinth.push(new Labyrinth(gl, [-1, 0.6, -i+3]));
+
+				labyrinth.push(new Labyrinth(gl, [0, 0.6, -i]));
+				labyrinth.push(new Labyrinth(gl, [0, 0.6, -i+1]));
+				labyrinth.push(new Labyrinth(gl, [0, 0.6, -i+2]));
+				labyrinth.push(new Labyrinth(gl, [0, 0.6, -i+3]));
+
+				labyrinth.push(new Labyrinth(gl, [0, 0.6, -i+8]));
+
+				labyrinth.push(new Labyrinth(gl, [1, 0.6, -i]));
+				labyrinth.push(new Labyrinth(gl, [1, 0.6, -i+1]));
+				labyrinth.push(new Labyrinth(gl, [1, 0.6, -i+2]));
+				labyrinth.push(new Labyrinth(gl, [1, 0.6, -i+3]));
 			} else {
-				labyrinth.push(new Labyrinth(gl, [10, 1, -i]));
-				labyrinth.push(new Labyrinth(gl, [-10, 1, -i]));
+				labyrinth.push(new Labyrinth(gl, [4, 0.6, -i]));
+				labyrinth.push(new Labyrinth(gl, [-4, 0.6, -i]));
 			}
 		}
 
