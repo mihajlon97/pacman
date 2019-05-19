@@ -219,13 +219,15 @@ function Pacman(gl, position = [0, 0, 0]) {
 			this.lcPosition = this.lcPosition.map(function (num, idx) {
 				return num + position[idx];
 			});
-
-			console.log("Labyrinth size: " + labyrinth.length);
-			console.log("Pacman position: " + this.lcPosition);
 			labyrinth.forEach((e, i) => {
 				if (canMove && i > 0 && getDistance(this.lcPosition[0], this.lcPosition[2], e.lcPosition[0], e.lcPosition[2]) < 1){
-					console.log("CANNOT MOVE!", e.lcPosition);
 					canMove = false;
+				}
+			});
+
+			points.forEach((e, i) => {
+				if (canMove && getDistance(this.lcPosition[0], this.lcPosition[2], e.lcPosition[0], e.lcPosition[2]) < 0.6){
+					e.hide();
 				}
 			});
 		}

@@ -1,5 +1,5 @@
 // Global Variables, first object empty, because selection starts with 1
-var pacman = null, labyrinth = [], canvas, gl, program, flag = false;
+var pacman = null, labyrinth = [], points = [], pointsCollected = 60, canvas, gl, program, flag = false;
 var wMatrix = mat4.create();
 var lightPosition = [5.0, -20.0, 40.0];
 var lightSelected = false;
@@ -36,6 +36,9 @@ var Init = function () {
 	// Create Labyrinth
 	createLabyrinth();
 
+	// Create points
+	createPoints();
+
 	// Create pacman
 	try {
 		pacman = new Pacman(gl, [0, 0.6, 0]);
@@ -45,7 +48,7 @@ var Init = function () {
 
 	// Render all objects
 	// Apply Lines if selected
-	var flagStarted = false;
+	var flagStarted = false, flagPoints = false;
 
 	function render() {
 		gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
@@ -60,6 +63,17 @@ var Init = function () {
 				if (i === labyrinth.length - 1) {
 					flagStarted = true;
 					pacman.start();
+				}
+			}
+		});
+
+		// Draw points
+		points.forEach((e, i) => {
+			e.draw(gl, pMatrix, vMatrix);
+			if (!flagPoints) {
+				e.start();
+				if (i === points.length - 1) {
+					flagPoints = true;
 				}
 			}
 		});
@@ -115,27 +129,27 @@ var Init = function () {
 			}
 			case "ArrowDown" : {
 				pacman.global = true;
-				if (pacman.update(0, 0, 0, [0, 0, -0.5]))
-					mat4.translate(vMatrix, vMatrix, [0, 0, 0.5]);
+				if (pacman.update(0, 0, 0, [0, 0, -0.25]))
+					mat4.translate(vMatrix, vMatrix, [0, 0, 0.25]);
 				pacman.rotate("down", 0);
 				break;
 			}
 			case "ArrowUp" : {
 				pacman.global = true;
-				if (pacman.update(0, 0, 0, [0, 0, 0.5]))
-					mat4.translate(vMatrix, vMatrix, [0, 0, -0.5]);
+				if (pacman.update(0, 0, 0, [0, 0, 0.25]))
+					mat4.translate(vMatrix, vMatrix, [0, 0, -0.25]);
 				pacman.rotate("up", -2.5);
 				break;
 			}
 			case "ArrowLeft" : {
-				if(pacman.update(0, 0, 0, [0.5, 0, 0]))
-					mat4.translate(vMatrix, vMatrix, [-0.5, 0, 0]);
+				if(pacman.update(0, 0, 0, [0.25, 0, 0]))
+					mat4.translate(vMatrix, vMatrix, [-0.25, 0, 0]);
 				pacman.rotate("left", -1.5);
 				break;
 			}
 			case "ArrowRight" : {
-				if(pacman.update(0, 0, 0, [-0.5, 0, 0]))
-					mat4.translate(vMatrix, vMatrix, [0.5, 0, 0]);
+				if(pacman.update(0, 0, 0, [-0.25, 0, 0]))
+					mat4.translate(vMatrix, vMatrix, [0.25, 0, 0]);
 				pacman.rotate("right", 1.5);
 				break;
 			}
